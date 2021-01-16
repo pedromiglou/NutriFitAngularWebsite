@@ -1,0 +1,192 @@
+<div class="col-md-12" style="background: linear-gradient(to left, #c2d6d6, #008080); color: white">
+  <h2 style="text-align: center" >
+    <button type="button" class="add" style="color: white" (click)="goToYesterday()">{{ yesterday }}  <i class="fas fa-long-arrow-alt-left"></i></button>
+    Daily Calories
+    <button type="button" class="add" style="color: white" (click)="goToTomorrow()"><i class="fas fa-long-arrow-alt-right"></i>  {{ tomorrow }}</button>
+  </h2>
+</div>
+<div class="container-fluid padding">
+  <div class="row padding">
+    <div class="card col-md-6">
+      <h5 class="title">{{ stats.cc }}</h5>
+      <h3 class="title">Consumed</h3>
+      <div class="progressC">
+        <div *ngIf="percentage_calories!=100" class="progress-done" style="width: {{ percentage_calories }}%">
+        </div>
+        <div *ngIf="percentage_calories==100" class="progress-done" style="width: {{ percentage_calories }}%; background: linear-gradient(to right, #ed213a, #93291e)">
+        </div>
+      </div>
+      <h3 class="titleb">Remaining</h3>
+      <h5 class="titleb">{{ stats.ci - stats.cc }}</h5>
+    </div>
+    <div class="card col-md-6">
+      <h5 class="titles">Protein: {{ stats.pc }} / {{ stats.pi }} g</h5>
+      <div class="progress">
+        <div *ngIf="percentage_protein!=100" class="progress-done" style="width: {{ percentage_protein }}%">
+        </div>
+        <div *ngIf="percentage_protein==100" class="progress-done" style="width: {{ percentage_protein }}%; background: linear-gradient(to right, #ed213a, #93291e)">
+        </div>
+      </div>
+      <h5 class="titles">Carbohydrates: {{ stats.hc }} / {{ stats.hi }} g</h5>
+      <div class="progress">
+        <div *ngIf="percentage_carbohydrates!=100" class="progress-done" style="width: {{ percentage_carbohydrates }}%">
+        </div>
+        <div *ngIf="percentage_carbohydrates==100" class="progress-done" style="width: {{ percentage_carbohydrates }}%; background: linear-gradient(to right, #ed213a, #93291e)">
+        </div>
+      </div>
+      <h5 class="titles">Fat: {{ stats.gc }} / {{ stats.gi }} g</h5>
+      <div class="progress" style="margin-bottom: 90px">
+        <div *ngIf="percentage_fat!=100" class="progress-done" style="width: {{ percentage_fat }}%">
+        </div>
+        <div *ngIf="percentage_fat==100" class="progress-done" style="width: {{ percentage_fat }}%; background: linear-gradient(to right, #ed213a, #93291e)">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p style="height: 50px"></p>
+<div class="col-md-12" style="background: linear-gradient(to left, grey, #267326); color: white">
+  <h2 style="text-align: center">BreakFast</h2>
+</div>
+<div class="container-fluid padding">
+  <div class="table-box">
+    <table class="table table-bordered table-condensed table-hover">
+      <thead class="head">
+      <tr>
+        <th>Name</th>
+        <th>Calories per 100g</th>
+        <th>Protein</th>
+        <th>Carbohydrates</th>
+        <th>Fat</th>
+        <th>Quantity</th>
+        <th style="width: 110px"></th>
+      </tr>
+      </thead>
+      <tbody class="text-left">
+      <tr *ngFor="let x of breakfast">
+        <td>{{ x.name }}</td>
+        <td>{{ x.calories }}</td>
+        <td>{{ x.protein }}</td>
+        <td>{{ x.carbohydrates }}</td>
+        <td>{{ x.fat }}</td>
+        <td>{{ x.quantity }}</td>
+        <td>
+          <button type="button" class="add btn btn-outline-light" (click)="updateComposed(x.food_id, x.composed_id, breakfast_id)"><i class="fas fa-edit" style="color: #F3B826"></i></button>
+          <button type="button" class="add btn btn-outline-light" (click)="deleteComposed(x.composed_id)"><i class="fas fa-trash-alt" style="color: red"></i></button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+  <input type="submit" value="Add Food" class="btn btn-success" style="margin-bottom: 10px; width:20%; margin-left: 40%; margin-right:40%" id="buttonpress" name="breakfast" (click)="addFood('breakfast', breakfast_id)">
+</div>
+
+<div class="col-md-12" style="background: linear-gradient(to left, grey, #267326);color: white">
+  <h2 style="text-align: center">Lunch</h2>
+</div>
+<div class="container-fluid padding">
+  <div class="table-box">
+    <table class="table table-bordered table-condensed table-hover">
+      <thead class="head">
+      <tr>
+        <th>Name</th>
+        <th>Calories per 100g</th>
+        <th>Protein</th>
+        <th>Carbohydrates</th>
+        <th>Fat</th>
+        <th>Quantity</th>
+        <th style="width: 110px"></th>
+      </tr>
+      </thead>
+      <tbody class="text-left">
+      <tr *ngFor="let x of lunch">
+        <td>{{ x.name }}</td>
+        <td>{{ x.calories }}</td>
+        <td>{{ x.protein }}</td>
+        <td>{{ x.carbohydrates }}</td>
+        <td>{{ x.fat }}</td>
+        <td>{{ x.quantity }}</td>
+        <td>
+          <button type="button" class="add btn btn-outline-light" (click)="updateComposed(x.food_id, x.composed_id, lunch_id)"><i class="fas fa-edit" style="color: #F3B826"></i></button>
+          <button type="button" class="add btn btn-outline-light" (click)="deleteComposed(x.composed_id)"><i class="fas fa-trash-alt" style="color: red"></i></button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <input type="submit" value="Add Food" class="btn btn-success" style="margin-bottom: 10px; width:20%; margin-left: 40%; margin-right:40%" id="buttonpress" name="lunch" (click)="addFood('lunch', lunch_id)">
+</div>
+
+<div class="col-md-12" style="background: linear-gradient(to left, grey, #267326); color: white">
+  <h2 style="text-align: center">Snack</h2>
+</div>
+<div class="container-fluid padding">
+  <div class="table-box">
+    <table class="table table-bordered table-condensed table-hover">
+      <thead class="head">
+      <tr>
+        <th>Name</th>
+        <th>Calories per 100g</th>
+        <th>Protein</th>
+        <th>Carbohydrates</th>
+        <th>Fat</th>
+        <th>Quantity</th>
+        <th style="width: 110px"></th>
+      </tr>
+      </thead>
+      <tbody class="text-left">
+      <tr *ngFor="let x of snack">
+        <td>{{ x.name }}</td>
+        <td>{{ x.calories }}</td>
+        <td>{{ x.protein }}</td>
+        <td>{{ x.carbohydrates }}</td>
+        <td>{{ x.fat }}</td>
+        <td>{{ x.quantity }}</td>
+        <td>
+          <button type="button" class="add btn btn-outline-light" (click)="updateComposed(x.food_id, x.composed_id, snack_id)"><i class="fas fa-edit" style="color: #F3B826"></i></button>
+          <button type="button" class="add btn btn-outline-light" (click)="deleteComposed(x.composed_id)"><i class="fas fa-trash-alt" style="color: red"></i></button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <input type="submit" value="Add Food" class="btn btn-success" style="margin-bottom: 10px; width:20%; margin-left: 40%; margin-right:40%" id="buttonpress" name="snack" (click)="addFood('snack', snack_id)">
+</div>
+
+<div class="col-md-12" style="background: linear-gradient(to left, grey, #267326); color: white">
+  <h2 style="text-align: center">Dinner</h2>
+</div>
+<div class="container-fluid padding">
+  <div class="table-box">
+    <table class="table table-bordered table-condensed table-hover">
+      <thead class="head">
+      <tr>
+        <th>Name</th>
+        <th>Calories per 100g</th>
+        <th>Protein</th>
+        <th>Carbohydrates</th>
+        <th>Fat</th>
+        <th>Quantity</th>
+        <th style="width: 110px"></th>
+      </tr>
+      </thead>
+      <tbody class="text-left">
+      <tr *ngFor="let x of dinner">
+        <td>{{ x.name }}</td>
+        <td>{{ x.calories }}</td>
+        <td>{{ x.protein }}</td>
+        <td>{{ x.carbohydrates }}</td>
+        <td>{{ x.fat }}</td>
+        <td>{{ x.quantity }}</td>
+        <td>
+          <button type="button" class="add btn btn-outline-light" (click)="updateComposed(x.food_id, x.composed_id, dinner_id)"><i class="fas fa-edit" style="color: #F3B826"></i></button>
+          <button type="button" class="add btn btn-outline-light" (click)="deleteComposed(x.composed_id)"><i class="fas fa-trash-alt" style="color: red"></i></button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <input type="submit" value="Add Food" class="btn btn-success" style="margin-bottom: 10px; width:20%; margin-left: 40%; margin-right:40%" id="buttonpress" name="dinner" (click)="addFood('dinner', dinner_id)">
+</div>

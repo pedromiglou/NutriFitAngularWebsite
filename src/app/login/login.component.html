@@ -1,0 +1,25 @@
+<div class="container2">
+  <img class="wave" src="assets/img/wave.png">
+  <h2>Login</h2>
+</div>
+<div class="container1">
+  <img class="logo" src="assets/img/profile_avatar.png">
+  <h2>Welcome</h2>
+  <form action="." method="post" class="registerform" [formGroup]="formLogin" (ngSubmit)="loginProcess()">
+    <!--form login-->
+    <label for="username">Username*</label>
+    <input id="username" formControlName="username" type="text">
+    <label for="password">Password*</label>
+    <input id="password" formControlName="password" type="password">
+    <div class="form-group">
+      <!--MUDAR ESTA LINHA -->
+      <a routerLink="password_reset">Forgot Password?</a>
+      <!------------------------------------------ -->
+      <a routerLink="signIn">Create Account</a>
+      <div class="form-group">
+        <input type="hidden" name="next" value="/daily/">
+        <input type="submit" class="btn" value="Login">
+      </div>
+    </div>
+  </form>
+</div>

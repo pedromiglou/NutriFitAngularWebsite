@@ -1,0 +1,59 @@
+<div class="container-fluid">
+  <div class="row padding">
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-body" style="padding-top: 10px;padding-bottom: 5px;">
+          <h3 style="margin-top: 0; background-color: lightgreen;text-align: center">
+            <strong>Results</strong>
+          </h3>
+          <Strong>Basal Metabolic Rate = </Strong>
+          <strong class="text" style="color:grey ;display: inline;">{{ bmr }}</strong>
+          kcal/day
+          <p></p>
+          <table class="table table-bordered table-condensed table-hover">
+            <tbody class="text-center">
+            <tr>
+              <td>To maintain your weight you need</td>
+              <td><strong id="caloriesCalc1" class="text-primary" style="display: inline;">{{ caloric_intake }}</strong> Kcal/day</td>
+            </tr>
+            <tr>
+              <td>To lose 0.5 kg per week you need</td>
+              <td><strong id="caloriesCalc2" class="text-success" style="display: inline;">{{ ci_lhalf }}</strong> Kcal/day</td>
+            </tr>
+            <tr>
+              <td>To lose 1 kg per week you need</td>
+              <td><strong id="caloriesCalc3" class="text-success" style="display: inline;">{{ ci_lone }}</strong> Kcal/day</td>
+            </tr>
+            <tr>
+              <td>To gain 0.5 kg per week you need</td>
+              <td><strong id="caloriesCalc4" class="text-danger" style="display: inline;">{{ ci_mhalf }}</strong> Kcal/day</td>
+            </tr>
+            <tr>
+              <td>To gain 1 kg per week you need</td>
+              <td><strong id="caloriesCalc5" class="text-danger" style="display: inline;">{{ ci_mone }}</strong> Kcal/day</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <h3>Basal Metabolic Rate(BMR)</h3>
+      <span>
+                <i>The basal metabolic rate (BMR) is the amount of energy needed while resting in a temperate environment when the digestive system is inactive. It is the equivalent of figuring out how much gas an idle car consumes while parked. In such a state, energy will be used only to maintain vital organs, which include the heart, lungs, kidneys, nervous system, intestines, liver, lungs, sex organs, muscles, and skin.</i>
+            </span>
+      <p></p>
+      <h3>Basal Metabolic Rate Formulas</h3>
+      <span>
+                <h5>The Original Harris-Benedict Equation:</h5>
+                <ul>
+                    <li><i>    Men BMR = 66.4730 + (13.7516 x weight in kg) + (5.0033 x height in cm) – (6.7550 x age in years)</i></li>
+                    <li><i>    Women BMR = 655.0955 + (9.5634 x weight in kg) + (1.8496 x height in cm) – (4.6756 x age in years)</i></li>
+                </ul>
+            </span>
+      <p></p>
+      <h3>NOTES:</h3>
+      <i> Have in mind this is only an estimative, you should always consult your doctor to help you with this process</i>
+    </div>
+  </div>
+</div>

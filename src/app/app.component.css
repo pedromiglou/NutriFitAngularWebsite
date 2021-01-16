@@ -1,0 +1,86 @@
+body{
+  height: 100%;
+  width: 100%;
+  color: #222;
+}
+
+.navbar{
+  padding: .8rem;
+}
+
+.nav-link{
+  font-size: 1.1em !important;
+}
+
+.buttoncol{
+  width: 48px;
+  border-radius: 7px;
+  display: none;
+}
+.logo{
+  width: 200px;
+  height: 100px;
+  margin-left: 50px;
+}
+
+.fix{
+  display: inline-block;
+  margin-left: 50px;
+  margin-top: 50px;
+}
+.fix p label{
+  font-size:20px;
+}
+
+.fix p input{
+  float:right;
+  margin-left: 5px;
+  border-color: lightgreen;
+  border-radius: 5px;
+  width: 100px;
+}
+
+.fix2{
+  display: inline-block;
+  margin-left: 50px;
+  margin-top: 20px;
+}
+
+.fix2 p label{
+  font-size:20px;
+}
+
+.fix2 p input{
+  float:right;
+  margin-left: 5px;
+  border-color: lightgreen;
+  border-radius: 5px;
+  width: 100px;
+}
+
+.fix2 p select{
+  float: right;
+  margin-left: 5px;
+  width: 100px;
+  height: auto;
+}
+
+/*---Media Queries --*/
+@media (max-width: 992px) {
+
+}
+@media (max-width: 768px) {
+  .buttoncol{
+    width: 48px;
+    border-radius: 7px;
+    display: block;
+  }
+
+}
+@media (max-width: 576px) {
+  .buttoncol{
+    width: 48px;
+    border-radius: 7px;
+    display: block;
+  }
+}

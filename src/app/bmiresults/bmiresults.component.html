@@ -1,0 +1,119 @@
+<div class="container-fluid padding">
+  <div class="row padding">
+    <div class="col-md-4">
+      <div class="card-body" style="display: inline-block;">
+        <h3>
+          <span style="text-align: Center;font-size: 40px;font-family: 'Comic Sans MS',cursive,sans-serif">BMI Result:</span>
+          <span *ngIf="bmi < 18.5" style="margin-left:5px;text-align: center;font-size: 45px;color:deepskyblue;font-family: 'Comic Sans MS',cursive,sans-serif">{{ bmi }}</span>
+          <span *ngIf="18.5 <= bmi && bmi <= 24.9" style="margin-left:5px; text-align: center;font-size: 45px;color:lightgreen;font-family: 'Comic Sans MS',cursive,sans-serif">{{ bmi }}</span>
+          <span *ngIf="25 <= bmi && bmi <= 29.9" style="margin-left:5px;text-align: center;font-size: 45px;color:yellow;font-family: 'Comic Sans MS',cursive,sans-serif">{{ bmi }}</span>
+          <span *ngIf="30 <= bmi && bmi <= 39.9" style="margin-left:5px;text-align: center;font-size: 45px;color:orange;font-family: 'Comic Sans MS',cursive,sans-serif">{{ bmi }}</span>
+          <span *ngIf="bmi > 40" style="margin-left:5px;text-align: center;font-size: 45px;color:red;font-family: 'Comic Sans MS',cursive,sans-serif">{{ bmi }}</span>
+        </h3>
+        <table class="imcTable">
+          <thead>
+          <tr>
+            <th scope="col">BMI</th>
+            <th scope="col">Weight Class</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngIf="bmi < 18.5" style="background-color: deepskyblue">
+            <th scope="row"><18.5</th>
+            <td>Underweight</td>
+          </tr>
+          <tr>
+            <th scope="row"><18.5</th>
+            <td>Underweight</td>
+          </tr>
+          <tr *ngIf="18.5 <= bmi && bmi <= 24.9" style="background-color: lightgreen">
+            <th scope="row">18.5-24.9</th>
+            <td>Normal</td>
+          </tr>
+          <tr>
+            <th scope="row">18.5-24.9</th>
+            <td>Normal</td>
+          </tr>
+          <tr *ngIf="25 <= bmi && bmi <= 29.9" style="background-color: yellow">
+            <th scope="row">25.0-29.9</th>
+            <td colspan="2">Overweight</td>
+          </tr>
+          <tr>
+            <th scope="row">25.0-29.9</th>
+            <td colspan="2">Overweight</td>
+          </tr>
+          <tr *ngIf="30 <= bmi && bmi <= 39.9" style="background-color: orange">
+            <th scope="row">30.0-39.9</th>
+            <td colspan="2">Obese</td>
+          </tr>
+          <tr>
+            <th scope="row">30.0-39.9</th>
+            <td colspan="2">Obese</td>
+          </tr>
+          <tr *ngIf="bmi > 40" style="background-color: red">
+            <th scope="row">40></th>
+            <td colspan="2">Morbid Obesity</td>
+          </tr>
+          <tr>
+            <th scope="row">40></th>
+            <td colspan="2">Morbid Obesity</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-md-8" style="margin-top:27px;">
+      <h3 class="title" *ngIf="bmi < 18.5">Under weight</h3>
+      <i class="info" *ngIf="bmi < 18.5">Being underweight is not good for you. It could cause:
+
+        Nutritional deficiencies: if you're underweight, it's likely that you're not eating a healthy, balanced diet, which can lead to you lacking nutrients that your body needs to work properly. Calcium, for example, is important for the maintenance of strong and healthy bones. If you do not get enough calcium, you risk developing osteoporosis (fragile bone disease). If you do not get enough iron, you may develop anaemia, which can make you feel drained and tired.
+        Weakened immune system: your immune system is not 100% when you're underweight, so you're more likely to catch a cold, flu or other infections.
+        Fertility problems: women who are underweight can find that their periods stop.</i>
+      <h3 class="title" *ngIf="18.5 <= bmi && bmi <= 24.9">Healthy weight</h3>
+      <i class="info" *ngIf="18.5 <= bmi && bmi <= 24.9">
+        Keep up the good work!
+
+        Eating a healthy, balanced diet is an important part of maintaining good health, and can help you feel your best.
+
+        This means eating a wide variety of foods in the right proportions, and consuming the right amount of food and drink to achieve and maintain a healthy body weight.
+
+        This page covers healthy eating advice for the general population.
+
+        People with special dietary needs or a medical condition should ask their doctor or a registered dietitian for advice.</i>
+      <h3 class="title" *ngIf="25 <= bmi && bmi <= 29.9">Overweight</h3>
+      <i class="info" *ngIf="25 <= bmi && bmi <= 29.9">You are a little overweight!
+        The best way to lose weight if you're overweight is through a combination of diet and exercise. You may have a little more fat percentage or muscle percentage.
+        In addition to a healthier diet, regular physical activity is an important part of your weight loss journey.
+
+        Not only will it help you burn extra calories, but it will also keep you motivated and improve your general health and wellbeing.</i>
+      <h3 class="title" *ngIf="30 <= bmi && bmi <= 39.9">Obese</h3>
+      <i class="info" *ngIf="30 <= bmi && bmi <= 39.9">It's very important to take steps to tackle obesity because, as well as causing obvious physical changes, it can lead to a number of serious and potentially life-threatening conditions.
+
+        These include:
+
+        type 2 diabetes,
+        coronary heart disease,
+        some types of cancer, such as breast cancer and bowel cancer,
+        stroke.
+        Obesity can also affect your quality of life and lead to psychological problems, such as depression and low self-esteem.</i>
+      <h3 class="title" *ngIf="bmi > 40">Morbid Obesity</h3>
+      <i class="info" *ngIf="bmi > 40">Morbid Obesity is a health concern. Without proper treatment, obesity can lead to other serious health problems, such as:
+
+        osteoarthritis,
+        heart disease and blood lipid abnormalities,
+        stroke,
+        type 2 diabetes,
+        sleep apnea (when you periodically stop breathing during sleep),
+        reproductive problems,
+        gallstones,
+        certain cancers,
+        obesity hypoventilation syndrome,
+        metabolic syndrome.
+        There is no data on the most effective way to induce long-term weight loss, but a healthy diet and regular exercise are the keys to overall health.
+
+        It is also important to learn stress management tools that can be used in place of overeating or snacking during stressful times.
+
+        You should work with your doctor and a dietitian to set realistic goals that will help you lose weight slowly through diet and exercise.</i>
+    </div>
+  </div>
+</div>

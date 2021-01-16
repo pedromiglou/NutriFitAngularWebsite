@@ -1,0 +1,93 @@
+div.container-fluid{
+  display: inline-block;
+  height: 40%;
+  margin-bottom: 5px;
+}
+
+div.container-fluid h3{
+  font-size:50px;
+  horiz-align:center;
+  margin-top:40px;
+  margin-bottom: 5%;
+  color:lightgreen;
+  font-weight: bold
+}
+
+div.form-group label{
+  font-size: 20px;
+  color: lightgreen;
+  float: left;
+  font-family: 'poppins', sans-serif;
+  margin-top: 4%;
+}
+
+div.form-group{
+  width: 45%;
+  margin-left: 5%;
+  margin-right: 15%;
+  margin-top: 0;
+  float: right;
+}
+
+div.form-check{
+  margin-top: 4%;
+}
+
+div.form-check label{
+  margin-top: 0;
+  font-size: 15px;
+}
+button.btn.btn-success{
+  font-weight: bold;
+  width: 20%;
+  height: auto;
+  margin-top: 2%;
+  margin-left: 40%;
+  margin-right: 40%;
+  float: right;
+  font-size: 70%;
+}
+
+button.btn.btn-success:hover{
+  transform: scale(1.1) perspective(1px);
+}
+
+svg.svg-inline--fa.fa-calculator.fa-w-14{
+  margin-right: 5px;
+  font-weight: bold;
+  font-size: 15px;
+
+}
+
+#leftcontainer{
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: #d9d9d9;
+}
+
+#rightcontainer{
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: #d9d9d9;
+}
+#centercontainer{
+  height: 100%;
+}
+
+.imagemIMC{
+  vertical-align: top;
+  width: 30%;
+  height: auto;
+  margin: 7% 0 15px 0;
+  float: left;
+}
+
+.imagemCI{
+  vertical-align: top;
+  width: 30%;
+  height: auto;
+  margin: 20% 0 15px 0;
+  float: left;
+}

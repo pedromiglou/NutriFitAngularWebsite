@@ -1,0 +1,62 @@
+<div id="slides" class="carousel slide" data-ride="carousel">
+  <ul class="carousel-indicators">
+    <li data-target="#slides" data-slide-to="0"></li>
+    <li data-target="#slides" data-slide-to="1"></li>
+  </ul>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="assets/img/background1.jpg" width="100%" height="auto">
+      <div class="carousel-caption">
+        <h1 class="display-2"></h1>
+        <h3>NutriFit</h3>
+        <!-- If user is authenticated-->
+        <button type="button" class="btn btn-success btn-lg" onclick="location.href= '/daily';">Get Started</button>
+        <!-- else-->
+        <script>
+          function alertBox() {
+            location.replace('/login')
+          alert("You have to login to access our daily calories count");
+          }
+        </script>
+        <button type="button" class="btn btn-success btn-lg" onclick=alertBox()>Get Started</button>
+        <!-- End if-->
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="assets/img/background2.jpg" width="100%" height="auto">
+      <div class="carousel-caption">
+        <h1 class="display-2"></h1>
+        <h3>Calculate BMI/Caloric Intake</h3>
+        <button type="button" class="btn btn-success btn-lg" onclick="location.href= '/calculate';">Calculate</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--- Jumbotron -->
+<div class="container-fluid">
+  <div class="row jumbotron">
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+      <p class="lead">Hello, we are a group of 2 students who want you to archieve your goals in your journey of becoming fit.
+        If you want to get fit this is the right website to you. In here you can calculate your calorie intake according to your objective
+        as well as calculating your BMI. You can track your calories adding foods daily to your different meals and check what you have
+        been eating for the older days, so you can see your progress.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Connect -->
+<div class="container-fluid">
+  <div class="row text-center">
+    <div class="col-12">
+      <h2>Social Media</h2>
+    </div>
+    <div class="col-12 social">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-google-plus-g"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+</div>

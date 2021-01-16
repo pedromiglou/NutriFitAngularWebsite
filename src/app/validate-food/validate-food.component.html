@@ -1,0 +1,43 @@
+<div class="card text-left" style="margin-bottom: 190px">
+  <div class="card-header" style="background-color:lightgray">
+    <!--<h5 style="float: left; color: #38d39f; font-size: 25px; text-transform: uppercase;">{{ alimentoInfo.nome}}</h5> -->
+    <!--<h5 style="float: right; color: #38d39f; font-size: 25px; text-transform: uppercase;">{{ data}}</h5> -->
+    <h5 style="float: left; color: #38d39f; font-size: 25px; text-transform: uppercase;">{{ alimentoInfo.nome }}</h5>
+    <h5 style="float: right; color: #38d39f; font-size: 25px; text-transform: uppercase;">{{ 'data'}}</h5>
+  </div>
+  <div class="card-body" style="background-color:lightgray">
+    <div class="info">
+      <h5>Per 100g:</h5>
+      <ul>
+        <li><label>Calories: {{ alimentoInfo.calorias }}g</label></li>
+        <li><label>Protein: {{ alimentoInfo.proteina }}g</label></li>
+        <li><label>Carbohydrates: {{ alimentoInfo.hidratos_carbono }}g</label></li>
+        <li><label>Fat: {{ alimentoInfo.gordura }}g</label></li>
+      </ul>
+    </div>
+    <div class="form">
+      <!-- <form action="" method="post" [formGroup]="formValidate" (ngSubmit)="validateFood()"> -->
+      <form action="" method="post" [formGroup]="formValidate">
+        <div id="div_id_quantity" class="form-group">
+          <label for="id_quantity" class=" requiredField">
+            Quantity(g):<span class="asteriskField">*</span>
+          </label>
+          <div class="">
+            <input type="number"  name="quantity" class="numberinput form-control" formControlName="quantity" required="" id="id_quantity">
+          </div>
+        </div>
+        <!-- If update
+
+        {{ form|crispy }}
+        If update
+        <input type="submit" class="confirm" value="Update">
+         else
+        <input type="submit" class="confirm" value="Save">
+        -->
+      </form>
+      <input type="submit" class="back" routerLink="daily" value="Cancel">
+      <input type="submit" class="confirm" value="Save" (click)="validateFood()">
+    </div>
+  </div>
+</div>
+

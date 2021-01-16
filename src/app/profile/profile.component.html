@@ -1,0 +1,220 @@
+<div class="profile-container">
+  <div class="leftbox">
+    <nav>
+      <a (click)="profile_pro()" class="active" id="a_pro"><i class="fa fa-user"></i></a>
+      <a (click)="profile_pwd()" class="tab" id="a_pwd"><i class="fa fa-key"></i></a>
+      <a (click)="profile_obj()" class="tab" id="a_obj"><i class="fa fa-bullseye"></i></a>
+      <a (click)="logout()" routerLink="/home" class="tab logout"><i class="fa fa-sign-out-alt"></i></a>
+    </nav>
+  </div>
+  <div class="rightbox">
+    <div class="profile tabShow" id="pro">
+      <p style="color: white">.</p>
+      <h1 class="ProfileTitle">Personal Info</h1>
+      <p style="color: white">.</p>
+      <form action="." method="post" [formGroup]="formPI" (ngSubmit)="setUser()">
+        <div id="div_id_first_name" class="form-group">
+          <label for="id_first_name" class=" requiredField">
+          First name<span class="asteriskField">*</span>
+          </label>
+          <div class="">
+            <input type="text" formControlName="first_name" name="first_name" maxlength="100" class="textinput textInput form-control" required="" id="id_first_name">
+          </div>
+        </div>
+        <div id="div_id_last_name" class="form-group">
+          <label for="id_last_name" class=" requiredField"> Last name<span class="asteriskField">*</span>
+          </label>
+          <div class="">
+            <input type="text" formControlName="last_name" name="last_name" maxlength="100" class="textinput textInput form-control" required="" id="id_last_name">
+          </div>
+        </div>
+        <div id="div_id_username" class="form-group">
+          <label for="id_username" class=" requiredField">
+          Username<span class="asteriskField">*</span>
+          </label>
+          <div class="">
+            <input type="text" formControlName="username" name="username" readonly="" maxlength="30" class="textinput textInput form-control" required="" id="id_username">
+          </div>
+        </div>
+        <div id="div_id_email" class="form-group">
+          <label for="id_email" class=" requiredField">
+          Email<span class="asteriskField">*</span>
+          </label>
+          <div class="">
+            <input type="text" formControlName="email" name="email"  maxlength="200" class="textinput textInput form-control" required="" id="id_email">
+          </div>
+        </div>
+        <div id="div_id_gender" class="form-group">
+          <label for="id_gender" class=" requiredField">Gender<span class="asteriskField">*</span>
+          </label>
+          <div class="">
+            <select id="id_gender" formControlName="gender" class="textinput textInput form-control">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+        </div>
+        <input type="submit" class="confirm-button" style="vertical-align: bottom;
+    display: block;
+    width: 50%;
+	height: 50px;
+	border-radius: 25px;
+	outline: none;
+	border: none;
+	background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+	background-size: 200%;
+	font-size: 1rem;
+	color: #fff;
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	margin: 2rem 0;
+	cursor: pointer;
+	transition: .5s;"
+               value="Update">
+      </form>
+    </div>
+    <div class="profile tabShow" style="display: none" id="pwd">
+      <p style="color: white">.</p>
+      <h1 class="ProfileTitle">Change Password</h1>
+      <p style="color: white">.</p>
+      <form action="." method="post" [formGroup]="formPWD" (ngSubmit)="changePassword()">
+        <div id="div_id_old_password" class="form-group">
+          <label for="id_old_password" class=" requiredField">
+          Old password<span class="asteriskField">*</span>
+          </label>
+          <div class="">
+            <input type="password" formControlName="old_pwd" name="old_password" autocomplete="current-password" autofocus="" class="textinput textInput form-control is-invalid" required="" id="id_old_password">
+            <p id="error_1_id_old_password" class="invalid-feedback"><strong>This field is required.</strong></p>
+          </div>
+        </div>
+        <div id="div_id_new_password1" class="form-group">
+          <label for="id_new_password1" class=" requiredField">
+          New password<span class="asteriskField">*</span>
+          </label>
+          <div class="">
+            <input type="password" formControlName="new_pwd" name="new_password1" autocomplete="new-password" class="textinput textInput form-control is-invalid" required="" id="id_new_password1">
+            <p id="error_1_id_new_password1" class="invalid-feedback"><strong>This field is required.</strong></p>
+            <small id="hint_id_new_password1" class="form-text text-muted"><ul><li>Your password must contain at least 8 characters.</li><li>Your password can’t be entirely numeric.</li></ul></small>
+          </div>
+        </div>
+        <div id="div_id_new_password2" class="form-group">
+          <label for="id_new_password2" class=" requiredField">
+          New password confirmation<span class="asteriskField">*</span> </label>
+          <div class="">
+            <input type="password" formControlName="new_pwd_c" name="new_password2" autocomplete="new-password" class="textinput textInput form-control is-invalid" required="" id="id_new_password2">
+            <p id="error_1_id_new_password2" class="invalid-feedback"><strong>This field is required.</strong></p>
+          </div>
+        </div>
+        <input type="submit" class="confirm-button" style="vertical-align: bottom;
+    display: block;
+    width: 50%;
+	height: 50px;
+	border-radius: 25px;
+	outline: none;
+	border: none;
+	background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+	background-size: 200%;
+	font-size: 1rem;
+	color: #fff;
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	margin: 2rem 0;
+	cursor: pointer;
+	transition: .5s;"
+               value="Change Password">
+      </form>
+    </div>
+    <div class="profile tabShow" style="display: none" id="obj">
+      <p style="color: white">.</p>
+      <h1 class="ProfileTitle">Goals</h1>
+      <p style="color: white">.</p>
+      <form action="." method="post" [formGroup]="formG" (ngSubmit)="setGoals()">
+        <div id="div_id_objetivo" class="form-group">
+          <label for="id_objetivo" class=" requiredField">
+          Goal<span class="asteriskField">*</span> </label>
+          <div class="">
+            <select name="objetivo" formControlName="objetivo" class="select form-control" id="id_objetivo">
+              <option value="gain">gain</option>
+              <option value="maintain">maintain</option>
+              <option value="lose">lose</option>
+            </select>
+          </div>
+        </div>
+        <div id="div_id_atividade" class="form-group">
+          <label for="id_atividade" class=" requiredField">
+            Activity<span class="asteriskField">*</span> </label>
+          <div class="">
+            <select name="objetivo" formControlName="atividade" class="select form-control" id="id_atividade">
+              <option value="none">Little to no exercise</option>
+
+              <option value="light">Light exercise (1–3 days per week)</option>
+
+              <option value="moderate">Moderate exercise (3–5 days per week)</option>
+
+              <option value="heavy">Heavy exercise (6–7 days per week)</option>
+
+              <option value="very_heavy">Very heavy exercise (twice per day, extra heavy workouts)</option>
+            </select>
+          </div>
+        </div>
+        <div id="div_id_peso" class="form-group">
+          <label for="id_peso" class=" requiredField">
+          Weight(kg)<span class="asteriskField">*</span>
+          </label>
+          <div class="">
+            <input type="number" formControlName="peso" name="peso"  step="0.01" class="numberinput form-control" required="" id="id_peso">
+          </div>
+        </div>
+        <div id="div_id_altura" class="form-group">
+          <label for="id_altura" class=" requiredField">
+          Height(cm)<span class="asteriskField">*</span>
+          </label>
+          <div class="">
+            <input type="number" formControlName="altura" name="altura"  class="numberinput form-control" required="" id="id_altura">
+          </div>
+        </div>
+        <div id="div_id_idade" class="form-group">
+          <label for="id_idade" class=" requiredField">
+          Age<span class="asteriskField">*</span>
+          </label>
+          <div class="">
+            <input type="number" formControlName="idade" name="idade"  class="numberinput form-control" required="" id="id_idade">
+          </div>
+        </div>
+        <div id="div_id_imc" class="form-group">
+          <label for="id_imc" class=" requiredField">
+          BMI<span class="asteriskField">*</span>
+          </label>
+          <div class="">
+            <input type="text" name="imc"  formControlName="imc" readonly="" class="textinput textInput form-control" required="" id="id_imc">
+          </div>
+        </div>
+        <div id="div_id_caloric_intake" class="form-group">
+          <label for="id_caloric_intake" class=" requiredField">
+          Caloric Intake<span class="asteriskField">*</span>
+          </label>
+          <div class="">
+            <input type="text" name="caloric_intake" formControlName="ci" readonly="" class="textinput textInput form-control" required="" id="id_caloric_intake">
+          </div>
+        </div>
+        <input type="submit" class="confirm-button" style="vertical-align: bottom;
+    display: block;
+    width: 50%;
+	height: 50px;
+	border-radius: 25px;
+	outline: none;
+	border: none;
+	background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+	background-size: 200%;
+	font-size: 1rem;
+	color: #fff;
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	margin: 2rem 0;
+	cursor: pointer;
+	transition: .5s;"
+               value="Update">
+      </form>
+    </div>
+  </div>
+</div>

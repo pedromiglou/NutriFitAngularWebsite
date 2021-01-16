@@ -1,0 +1,116 @@
+<div>
+</div>
+<div class="customfilters" style="background-color: white">
+  <div style="display: inline-block;width: 100%">
+    <h6 style="float: left; margin-left: 20px; color: #555; font-size: 25px; text-transform: uppercase;font-family: 'poppins', sans-serif">{{ meal_name }}</h6>
+    <h6 style="float: right; margin-right: 20px; color: #555; font-size: 25px;font-family: 'poppins', sans-serif">{{ meal_data }}</h6>
+  </div>
+  <form action="." method="post" class="mealform" [formGroup]="formMeal" (ngSubmit)="getFood()">
+    <div id="div_id_categoria" class="form-group">
+      <label for="id_categoria" class="">
+        Category
+      </label>
+      <div class="">
+        <select formControlName="category" name="categoria" class="selectmultiple form-control" id="id_categoria" multiple="">
+          <option *ngFor="let category of categories" value="{{category.nome}}">{{category.nome}}</option>
+          <option value=""></option>
+        </select>
+      </div>
+    </div>
+
+    <div id="div_id_nome_alimento" class="form-group">
+      <label for="id_nome_alimento" class="">
+      Name
+      </label>
+      <div class="">
+        <input formControlName="name" type="text" name="nome_alimento" placeholder="Search" class="textinput textInput form-control" id="id_nome_alimento">
+      </div>
+    </div>
+
+    <div id="div_id_protein_higher" class="form-group">
+      <label for="id_protein_higher" class="">
+      Protein
+      </label>
+      <div class="">
+        <input formControlName="protein_higher" type="number" name="protein_higher" placeholder="Higher" class="textinput textInput form-control" id="id_protein_higher">
+      </div>
+    </div>
+
+    <div id="div_id_protein_lower" class="form-group">
+      <div class="">
+        <input formControlName="protein_lower" type="number" name="protein_lower" placeholder="Lower" class="textinput textInput form-control" id="id_protein_lower">
+      </div>
+    </div>
+
+    <div id="div_id_hc_higher" class="form-group">
+      <label for="id_hc_higher" class="">
+      Carbohydrates
+      </label>
+      <div class="">
+        <input formControlName="hc_higher" type="number" name="hc_higher" placeholder="Higher" class="textinput textInput form-control" id="id_hc_higher">
+      </div>
+    </div>
+
+    <div id="div_id_hc_lower" class="form-group">
+      <div class="">
+        <input formControlName="hc_lower" type="number" name="hc_lower" placeholder="Lower" class="textinput textInput form-control" id="id_hc_lower">
+      </div>
+    </div>
+
+    <div id="div_id_fat_higher" class="form-group">
+      <label for="id_fat_higher" class="">
+      Fat
+      </label>
+      <div class="">
+        <input formControlName="fat_higher" type="number" name="fat_higher" placeholder="Higher" class="textinput textInput form-control" id="id_fat_higher">
+      </div>
+    </div>
+
+    <div id="div_id_fat_lower" class="form-group">
+      <div class="">
+        <input formControlName="fat_lower" type="number" name="fat_lower" placeholder="Lower" class="textinput textInput form-control" id="id_fat_lower">
+      </div>
+    </div>
+
+    <div class="button_div">
+      <input type="submit" value="Filter" class="btn" name="filterAlimentos">
+    </div>
+  </form>
+</div>
+
+<div class="table-box">
+  <table class="table table-bordered table-condensed table-hover">
+    <thead class="head">
+    <tr>
+      <th>Name</th>
+      <th>Calories per 100g</th>
+      <th>Protein</th>
+      <th>Carbohydrates</th>
+      <th>Fat</th>
+      <th style="width: 40px"></th>
+    </tr>
+    </thead>
+    <tbody class="text-left">
+    <tr *ngFor="let alimento of alimentos">
+      <td>{{ alimento.nome}}</td>
+      <td>{{ alimento.calorias }}</td>
+      <td>{{ alimento.proteina }}</td>
+      <td>{{ alimento.hidratos_carbono }}</td>
+      <td>{{ alimento.gordura }}</td>
+      <td>
+        <button type="button" class="add" (click)="validateFood(alimento.id_alimento)"><i class="fas fa-plus"></i></button>
+        <!--<button type="button" class="add" data-toggle="modal" data-target="#AddFoodModal" name="addFood"><i class="fas fa-plus"></i></button>-->
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<button class="btn btn-success" style="width: 200px;margin-top: 5px;margin-left: 10px; border-radius: 25px;background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+	background-size: 200%; font-size: 1.2rem;
+	color: #fff;
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: .5s; "
+        routerLink="daily">Back</button>

@@ -1,0 +1,45 @@
+.imcTable{
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 1.2em;
+  min-width: 400px;
+  border-radius: 5px 5px 5px 5px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+}
+
+.imcTable thead tr{
+  background-color: lightgray;
+  color: black;
+  text-align: left;
+  font-weight: bold;
+}
+
+.imcTable tbody tr{
+  border-bottom: 1px solid #dddddd;
+}
+
+.imcTable th, .imcTable td{
+  padding: 12px 15px;
+}
+
+.imcTable tbody tr:last-of-type{
+  border-bottom: 2px solid lightgray;
+}
+
+.info{
+  margin: 2%;
+  text-align: left;
+  font-size: 25px;
+}
+
+.title{
+  text-align: center;
+  font-size: 50px;
+  font-family: Helvetica,cursive,sans-serif;
+}
+
+div.col-md-8{
+  padding: 2%;
+}

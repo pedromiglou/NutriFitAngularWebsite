@@ -1,0 +1,39 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <div class="container-fluid" >
+    <a class="navbar-brand"><img src="assets/img/logo.png" alt="Logo" class="logo"></a>
+    <button class="buttoncol" type="button" (click)="toogleList()" data-target="#navbarResponsive">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto" style="margin-bottom: 0;">
+        <li class="nav-item active"><a class="nav-link" routerLink="/home">Home</a></li>
+        <li class="nav-item" ><a class="nav-link" routerLink="/calculateBMI_CI">Calculators</a></li>
+        <li class="nav-item" ><a class="nav-link" routerLink="/daily" *ngIf="authService.logged">Daily</a></li>
+        <li class="nav-item" ><a class="nav-link" routerLink="/foodManagement" *ngIf="authService.permissions.food">Food Management</a></li>
+        <li class="nav-item" ><a class="nav-link" routerLink="/userManagement" *ngIf="authService.permissions.user">User Management</a></li>
+        <li class="navbar-item"><a class="nav-link" style="color:lightgreen" routerLink="/profile" *ngIf="authService.logged">My Account</a></li>
+        <li class="navbar-item"><a class="nav-link" style="color:lightgreen" (click)="logout()" routerLink="/home" *ngIf="authService.logged">Logout</a></li>
+        <li class="nav-item" ><a class="nav-link" routerLink="/login" *ngIf="!authService.logged">Login</a></li>
+        <li class="nav-item" ><a class="nav-link" routerLink="/signIn" *ngIf="!authService.logged">Sign In</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
+
+<!--- Footer -->
+<footer>
+  <div class="container-fluid padding" style="background-color: lightgrey">
+    <div class="row text-center">
+      <div class="col-md-12">
+        <img src="assets/img/logo.png" width="100px" height="auto">
+        <hr class="light">
+        <p>email@gmail.com</p>
+        <p>email2@gmail.com</p>
+        <p>Aveiro, 3800-102</p>
+      </div>
+    </div>
+  </div>
+</footer>

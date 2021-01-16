@@ -1,0 +1,66 @@
+div.card.text-left{
+  background-color: lightgray;
+  width: 50%;
+  height: 320px;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 160px;
+  font-family: 'Poppins', sans-serif;
+  color: #555555;
+  font-size: 20px;
+}
+
+div.info{
+  width: 60%;
+  float: left;
+}
+
+div.form{
+  width: 40%;
+  float: right;
+}
+
+div.info ul{
+  list-style-type: none;
+  color: gray;
+}
+
+input.back{
+  display: block;
+  width: 40%;
+
+  float: left;
+  height: 40px;
+  border-radius: 25px;
+  outline: none;
+  border: none;
+  background-image: linear-gradient(to right, #d31027, #ea384d);
+  background-size: 200%;
+  font-size: 1rem;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: .5s;
+  margin-top: 40px;
+  margin-left: 10%;
+}
+
+input.confirm{
+  display: block;
+  width: 40%;
+  float: right;
+  height: 40px;
+  border-radius: 25px;
+  outline: none;
+  border: none;
+  background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+  background-size: 200%;
+  font-size: 1rem;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: .5s;
+  margin-top: 40px;
+}

@@ -1,0 +1,96 @@
+div.objetive-container{
+  background: #ffffff;
+  width: 800px;
+  height: 850px;
+  margin: 0 auto;
+  position: relative;
+  margin-top: 5%;
+  margin-bottom: 10%;
+  box-shadow: 2px 5px 20px rgba(119,119,119,0.5)
+}
+
+div.profile-container{
+  background: #ffffff;
+  width: 800px;
+  height: 850px;
+  margin: 0 auto;
+  position: relative;
+  margin-top: 5%;
+  margin-bottom: 10%;
+  box-shadow: 2px 5px 20px rgba(119,119,119,0.5)
+}
+
+div.set-container{
+  background: #ffffff;
+  width: 800px;
+  height: 850px;
+  margin: 0 auto;
+  position: relative;
+  margin-top: 5%;
+  margin-bottom: 10%;
+  box-shadow: 2px 5px 20px rgba(119,119,119,0.5)
+}
+
+
+.leftbox{
+  float: left;
+  top: -5%;
+  left: -16%;
+  position: absolute;
+  width: 15%;
+  height: 110%;
+  background: #2ed573;
+  box-shadow: 3px 3px 10px rgba(119,119,119,0.5);
+  border: .1em solid #ffffff;
+}
+
+nav a svg{
+  color: white;
+}
+
+nav a{
+  list-style: none;
+  padding: 35px;
+  font-size: 45px;
+  display: block;
+  transition: all .3s ease-in-out;
+}
+
+.tab.logout{
+  margin-top: 150%
+}
+
+nav a:hover{
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+nav a:hover svg{
+  color:#10ac84;
+}
+
+nav a.active svg{
+  color : gray;
+}
+
+.rightbox{
+  width: 80%;
+  margin-left: 20%;
+}
+
+.tabShow{
+  transition: all .5s ease-in;
+  width: 70%;
+}
+
+h1.ProfileTitle{
+  font-family: 'Poppins', sans-serif;
+  color: gray;
+}
+
+label.requiredField{
+  font-size: 20px;
+  color: #38d39f;
+  float: left;
+  font-family: 'poppins', sans-serif;
+}

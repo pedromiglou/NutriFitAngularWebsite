@@ -1,0 +1,311 @@
+.customfilters{
+  margin-top: 10px;
+  margin-bottom: 15px;
+  width: 100%;
+  display: inline-block;
+  border: 2px solid lightgray;
+  border-radius: 20px;
+  background-image: linear-gradient(to left, #e6e9f0 0%, #eef1f5 100%);
+}
+
+.mealform div.form-group{
+  display: inline-block;
+}
+
+div#div_id_categoria.form-group{
+  height: auto;
+  width: 200px;
+  display: inline-block;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+div#div_id_categoria.form-group label{
+  font-size: 20px;
+  color: #38d39f;
+  float: left;
+}
+
+div#div_id_categoria.form-group select{
+  float: right;
+  height: 60px;
+  width: 200px;
+  background-color: lightgray;
+  padding: 0.5rem 0.7rem;
+  font-size: 15px;
+  color: #555;
+  font-family: 'poppins', sans-serif;
+}
+
+
+
+div#div_id_nome_alimento.form-group{
+  height: auto;
+  width: 420px;
+  display: inline-block;
+  margin-left: 45px;
+}
+
+div#div_id_nome_alimento.form-group label{
+  font-size: 20px;
+  color: #38d39f;
+  float: left;
+}
+
+div#div_id_nome_alimento.form-group input{
+  float: right;
+  height: 50px;
+  width: 420px;
+  background-color: lightgray;
+  padding: 0.5rem 0.7rem;
+  font-size: 20px;
+  color: #555;
+  font-family: 'poppins', sans-serif;
+}
+
+div.form-group label{
+  font-size: 20px;
+  color: #38d39f;
+  float: left;
+  font-family: 'poppins', sans-serif;
+}
+
+div#div_id_protein_lower.form-group{
+  height: auto;
+  width: 90px;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+
+div#div_id_protein_lower.form-group input{
+  float: left;
+  height: 50px;
+  width: 100%;
+  background-color: lightgray;
+  padding: 0.5rem 0.7rem;
+  font-size: 15px;
+  color: #555;
+  font-family: 'poppins', sans-serif;
+}
+
+
+div#div_id_protein_higher.form-group{
+  height: auto;
+  width: 90px;
+  display: inline-block;
+  margin-left: 75px;
+}
+
+div#div_id_protein_higher.form-group input{
+  float: left;
+  height: 50px;
+  width: 100%;
+  background-color: lightgray;
+  padding: 0.5rem 0.7rem;
+  font-size: 15px;
+  color: #555;
+  font-family: 'poppins', sans-serif;
+}
+
+
+div#div_id_hc_higher.form-group{
+  height: auto;
+  width: 90px;
+  display: inline-block;
+  margin-left: 75px;
+}
+
+div#div_id_hc_higher.form-group input{
+  float: left;
+  height: 50px;
+  width: 100%;
+  background-color: lightgray;
+  padding: 0.5rem 0.7rem;
+  font-size: 15px;
+  color: #555;
+  font-family: 'poppins', sans-serif;
+}
+
+div#div_id_hc_lower.form-group{
+  height: auto;
+  width: 90px;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+div#div_id_hc_lower.form-group input{
+  float: left;
+  height: 50px;
+  width: 100%;
+  background-color: lightgray;
+  padding: 0.5rem 0.7rem;
+  font-size: 15px;
+  color: #555;
+  font-family: 'poppins', sans-serif;
+}
+
+
+div#div_id_fat_higher.form-group{
+  height: auto;
+  width: 90px;
+  display: inline-block;
+  margin-left: 75px;
+}
+
+div#div_id_fat_higher.form-group input{
+  float: left;
+  height: 50px;
+  width: 100%;
+  background-color: lightgray;
+  padding: 0.5rem 0.7rem;
+  font-size: 15px;
+  color: #555;
+  font-family: 'poppins', sans-serif;
+}
+
+
+div#div_id_fat_lower.form-group{
+  height: auto;
+  width: 90px;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+div#div_id_fat_lower.form-group input{
+  float: left;
+  height: 50px;
+  width: 100%;
+  background-color: lightgray;
+  padding: 0.5rem 0.7rem;
+  font-size: 15px;
+  color: #555;
+  font-family: 'poppins', sans-serif;
+}
+
+.button_div{
+  width: 20%;
+  margin-left: 40%;
+  margin-right: 40%;
+}
+
+form div .btn{
+  display: block;
+  width: 100%;
+  height: 50px;
+  border-radius: 25px;
+  outline: none;
+  border: none;
+  background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+  background-size: 200%;
+  font-size: 1.2rem;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  margin: 1rem 0;
+  cursor: pointer;
+  transition: .5s;
+}
+.btn:hover{
+  background-position: right;
+}
+
+.table-box{
+  width: 99%;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+  margin-bottom: 10px;
+  height: 400px;
+  overflow-y: scroll;
+  border-radius: 10px;
+}
+
+table.table.table-bordered.table-condensed.table-hover{
+  border-collapse: collapse;
+  font-size: 1.2em;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  background-image: linear-gradient(to left, #e6e9f0 0%, #eef1f5 100%);
+  color: #555;
+  font-family: 'Poppins', sans-serif;
+}
+
+thead th{
+  position: sticky;
+  top:0;
+  border: 0;
+  background-color: #38d39f;
+  color: white;
+}
+
+svg.svg-inline--fa.fa-plus.fa-w-14{
+  color: #38d39f;
+  width: 25px;
+
+}
+
+button.add{
+  background-color: transparent;
+  border: 0;
+  border-radius: 20px;
+}
+
+button.add:hover{
+  cursor: pointer;
+}
+
+button.add:focus{
+  outline: none;
+}
+
+button.back{
+  width: 100%;
+  height: 50px;
+  border-radius: 25px;
+  outline: none;
+  border: none;
+  background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+  background-size: 200%;
+  font-size: 1.2rem;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  margin: 1rem 0;
+  cursor: pointer;
+  transition: .5s;
+}
+
+@media screen and (max-width: 1050px){
+
+}
+
+@media screen and (max-width: 1000px){
+
+}
+
+@media screen and (max-width: 900px){
+  div#div_id_nome_alimento.form-group{
+    height: auto;
+    width: 420px;
+    display: inline-block;
+    margin-left: 0;
+  }
+  div#div_id_protein_higher.form-group{
+    height: auto;
+    width: 90px;
+    display: inline-block;
+    margin-left: 10px;
+  }
+  div#div_id_hc_higher.form-group{
+    height: auto;
+    width: 90px;
+    display: inline-block;
+    margin-left: 10px;
+  }
+
+  div#div_id_fat_higher.form-group{
+    height: auto;
+    width: 90px;
+    display: inline-block;
+    margin-left: 10px;
+  }
+}
