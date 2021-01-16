@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {AuthServiceService} from "./auth-service.service";
-import {CookieService} from "ngx-cookie-service";
-import {Observable} from "rxjs/Internal/Observable";
-import {User} from "../User";
-import {baseURL} from "../environments/environment";
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {AuthServiceService} from './auth-service.service';
+import {CookieService} from 'ngx-cookie-service';
+import {Observable} from 'rxjs';
+import {User} from '../User';
+import {baseURL} from '../environments/environment';
 import {Profile} from '../Profile';
 
 @Injectable({

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie-service';
-import {Observable} from 'rxjs/Internal/Observable';
+import {Observable} from 'rxjs';
 import {baseURL} from '../environments/environment';
 import {Category} from '../Category';
 import {AuthServiceService} from './auth-service.service';
