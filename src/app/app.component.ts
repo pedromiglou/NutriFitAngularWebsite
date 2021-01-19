@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthServiceService} from './auth-service.service';
+import {Router} from 'express';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import {AuthServiceService} from './auth-service.service';
 export class AppComponent implements OnInit {
   title = 'NutriFit';
 
-  constructor(public authService: AuthServiceService) { }
+  constructor(public authService: AuthServiceService, public router: Router) { }
 
   ngOnInit(): void {}
 
