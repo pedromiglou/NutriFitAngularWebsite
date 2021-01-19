@@ -18,6 +18,8 @@ import { MealComponent } from './meal/meal.component';
 import { ValidateFoodComponent } from './validate-food/validate-food.component';
 import { ProfileComponent } from './profile/profile.component';
 import {AuthServiceService} from './auth-service.service';
+import { FoodmanagementComponent } from './foodmanagement/foodmanagement.component';
+import { UsermanagementComponent } from './usermanagement/usermanagement.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import {AuthServiceService} from './auth-service.service';
     CIresultsComponent,
     MealComponent,
     ValidateFoodComponent,
-    ProfileComponent
+    ProfileComponent,
+    FoodmanagementComponent,
+    UsermanagementComponent
   ],
   imports: [
     BrowserModule,

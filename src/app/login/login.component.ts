@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {AuthServiceService} from "../auth-service.service";
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {AuthServiceService} from '../auth-service.service';
 import {CookieService} from 'ngx-cookie-service';
 import {Router} from '@angular/router';
-import {waitForAsync} from '@angular/core/testing';
 
 @Component({
   selector: 'app-login',
@@ -29,11 +28,11 @@ export class LoginComponent implements OnInit {
     if (this.formLogin.valid){
       this.authService.login(this.formLogin.value).subscribe(
         data => {
-          this.authService.updateData(data['token']);
+          this.authService.updateData(data.token);
           this.router.navigateByUrl('daily');
         },
         err => {
-          this.authService.errors = err['error'];
+          this.authService.errors = err.error;
         }
       );
     }

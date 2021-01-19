@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {RegisterService} from "../register.service";
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {RegisterService} from '../register.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -46,19 +46,19 @@ export class SignInComponent implements OnInit {
   }
 
   validatePassword(password): boolean{
-    let errors = [];
+    const errors = [];
     if (password.length < 8) {
-      errors.push("Your password must be at least 8 characters");
+      errors.push('Your password must be at least 8 characters');
     }
     if (password.search(/[a-z]/i) < 0) {
-      errors.push("Your password must contain at least one letter.");
+      errors.push('Your password must contain at least one letter.');
     }
     if (password.search(/[0-9]/) < 0) {
-      errors.push("Your password must contain at least one digit.");
+      errors.push('Your password must contain at least one digit.');
     }
     if (errors.length > 0) {
       alert(errors.join('\n'));
-      for (let e in errors){
+      for (const e in errors){
         alert(e);
       }
       return false;

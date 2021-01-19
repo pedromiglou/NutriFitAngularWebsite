@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {FoodService} from "../food.service";
-import {AuthServiceService} from "../auth-service.service";
-import {Router} from "@angular/router";
-import {CookieService} from "ngx-cookie-service";
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FoodService} from '../food.service';
+import {AuthServiceService} from '../auth-service.service';
+import {Router} from '@angular/router';
+import {CookieService} from 'ngx-cookie-service';
 import {Food} from '../../Food';
 
 @Component({

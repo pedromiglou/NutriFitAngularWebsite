@@ -124,4 +124,53 @@ export class FoodService {
     };
     return this.http.get<Food>(baseURL + '/getfood?id=' + id, httpOptions);
   }
+
+  addFood(data): Observable<Food>{
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'JWT ' + this.authService.token
+      })
+    };
+    return this.http.post<Food>(baseURL + '/addfood', data, httpOptions);
+  }
+
+  updateFood(data): Observable<Food>{
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'JWT ' + this.authService.token
+      })
+    };
+    return this.http.put<Food>(baseURL + '/updatefood', data, httpOptions);
+  }
+
+  removeFood(food_id): Observable<Food>{
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'JWT ' + this.authService.token
+      })
+    };
+    return this.http.delete<Food>(baseURL + '/deletefood/' + food_id, httpOptions);
+  }
+
+  del_category(id: number): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'JWT ' + this.authService.token
+      })
+    };
+    return this.http.delete<Category>(baseURL + '/deletecategory/' + id, httpOptions);
+  }
+  new_category(data): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'JWT ' + this.authService.token
+      })
+    };
+    return this.http.post<Category>(baseURL + '/postcategory', data, httpOptions);
+  }
 }

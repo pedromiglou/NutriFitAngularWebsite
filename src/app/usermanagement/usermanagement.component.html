@@ -1,0 +1,71 @@
+<div>
+</div>
+<div class="customfilters" style="background-color: white">
+  <div style="display: inline-block;width: 100%">
+    <h5 style="float: left; margin-left: 20px; margin-top: 10px; color: #555; font-size: 30px; text-transform: uppercase;font-family: 'poppins', sans-serif">User Management</h5>
+  </div>
+  <form action="." method="post" class="userform" [formGroup]="userForm" (ngSubmit)="getUsers()">
+    <div id="div_id_name" class="form-group">
+      <label for="id_name" class=" requiredField">
+      Name<span class="asteriskField">*</span>
+      </label>
+      <div class="">
+        <input type="text" formControlName="name" name="name" maxlength="30" class="textinput textInput form-control" id="id_name">
+      </div>
+    </div>
+    <div id="div_id_staff" class="form-group">
+      <label for="id_staff" class=" requiredField">
+        Staff<span class="asteriskField">*</span>
+      </label>
+      <div class="">
+        <select name="staff" formControlName="staff" class="select form-control" id="id_staff">
+          <option disabled selected>--Selecione--</option>
+          <option value="True">True</option>
+          <option value="False">False</option>
+          <option value=""></option>
+        </select>
+      </div>
+    </div>
+    <div id="div_id_superuser" class="form-group">
+      <label for="id_superuser" class=" requiredField">
+        SuperUser<span class="asteriskField">*</span>
+      </label>
+      <div class="">
+        <select name="superuser" formControlName="superuser" class="select form-control" id="id_superuser">
+          <option disabled selected>--Selecione--</option>
+          <option value="True">True</option>
+          <option value="False">False</option>
+          <option value=""></option>
+        </select>
+      </div>
+    </div>
+
+    <div class="button_div">
+      <input type="submit" value="Filter" class="btn" name="filterUsers">
+    </div>
+  </form>
+</div>
+
+<div class="table-box">
+  <table class="table table-bordered table-condensed table-hover">
+    <thead class="head">
+    <tr>
+      <th>Name</th>
+      <th>Staff</th>
+      <th>SuperUser</th>
+      <th>Promote/Demote</th>
+    </tr>
+    </thead>
+    <tbody class="text-left">
+    <tr *ngFor="let user of users">
+      <td>{{ user.name }}</td>
+      <td>{{ user.staff }}</td>
+      <td>{{ user.superuser }}</td>
+      <td>
+        <button type="button" class="add btn btn-outline-light" (click)="promoteUser(user.id)"><i class="fas fa-angle-double-up" style="font-size:20px;color: #006600"></i></button>
+        <button type="button" class="add btn btn-outline-light" (click)="demoteUser(user.id)"><i class="fas fa-angle-double-down" style="font-size:20px;color: red"></i></button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

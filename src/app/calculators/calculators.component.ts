@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Form, FormControl, FormGroup, Validators} from "@angular/forms";
-import {CalculateService} from "../calculate.service";
-import {AuthServiceService} from "../auth-service.service";
-import {Router} from "@angular/router";
-import {CookieService} from "ngx-cookie-service";
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {CalculateService} from '../calculate.service';
+import {AuthServiceService} from '../auth-service.service';
+import {Router} from '@angular/router';
+import {CookieService} from 'ngx-cookie-service';
 import {ProfileService} from '../profile.service';
 
 @Component({
@@ -75,11 +75,11 @@ export class CalculatorsComponent implements OnInit {
   calculateCI(): void{
     if (this.formCalculatorCI.valid){
       this.bmr = 0;
-      if (this.formCalculatorCI.value.sexo === 'Male'){
+      if (this.formCalculatorCI.value.sexo === 'male'){
         this.bmr = 66.4730 + (13.7516 * this.formCalculatorCI.value.peso) + (5.0033 * this.formCalculatorCI.value.altura) -
           (6.7550 * this.formCalculatorCI.value.idade);
       }
-      else if (this.formCalculatorCI.value.sexo === 'Female'){
+      else if (this.formCalculatorCI.value.sexo === 'female'){
         this.bmr = 655.0955 + (9.5634 * this.formCalculatorCI.value.peso) + (1.8496 * this.formCalculatorCI.value.altura) -
           (4.6756 * this.formCalculatorCI.value.idade);
       }
@@ -100,10 +100,10 @@ export class CalculatorsComponent implements OnInit {
         this.caloric_intake = this.bmr * 1.9;
       }
 
-      let ci_lone = this.caloric_intake - 1000;
-      let ci_lhalf = this.caloric_intake - 500;
-      let ci_mone = this.caloric_intake + 1000;
-      let ci_mhalf = this.caloric_intake + 500;
+      const ci_lone = this.caloric_intake - 1000;
+      const ci_lhalf = this.caloric_intake - 500;
+      const ci_mone = this.caloric_intake + 1000;
+      const ci_mhalf = this.caloric_intake + 500;
 
       this.cookieService.set('bmr', this.bmr.toString());
       this.cookieService.set('caloric_intake', this.caloric_intake.toString());

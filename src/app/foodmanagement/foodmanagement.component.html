@@ -1,0 +1,202 @@
+<div>
+</div>
+<div class="customfilters" style="background-color: white">
+  <div style="display: inline-block;width: 100%">
+    <h5 style="float: left; margin-left: 20px; color: #555; font-size: 30px; text-transform: uppercase;font-family: 'poppins', sans-serif">Food</h5>
+  </div>
+  <div style="display: inline-block;width: 100%">
+    <h5 *ngIf="update" style="float: left; margin-left: 20px; color: #555; font-size: 25px; text-transform: uppercase;font-family: 'poppins', sans-serif">Update Food</h5>
+    <h5 *ngIf="add" style="float: left; margin-left: 20px; color: #555; font-size: 25px; text-transform: uppercase;font-family: 'poppins', sans-serif">Add Food</h5>
+  </div>
+  <form action="." method="post" class="mealform" [formGroup]="a_e_Food" (ngSubmit)="submitFood()">
+    <div id="div_id_name" class="form-group">
+      <label for="id_name" class=" requiredField">
+        Name<span class="asteriskField">*</span>
+      </label>
+      <div class="">
+        <input placeholder="Name" type="text" name="name" formControlName="nome" maxlength="30" class="textinput textInput form-control" required="" id="id_name">
+      </div>
+    </div>
+    <div id="div_id_calories" class="form-group">
+      <label for="id_calories" class=" requiredField">
+      Calories<span class="asteriskField">*</span>
+      </label>
+      <div class="">
+        <input placeholder="calories(kcal)" type="number" name="calories" formControlName="calorias" class="numberinput form-control" required="" id="id_calories">
+      </div>
+    </div>
+    <div id="div_id_category" class="form-group">
+      <div class="content" id="category">
+        <label for="id_category" id="label_c" class=" requiredField">
+          Category<span class="asteriskField">*</span>
+        </label>
+        <div class="">
+          <select name="category" formControlName="categoria" class="select form-control" id="id_category">
+            <option disabled selected>--Selecione--</option>
+            <option *ngFor="let category of categories" value="{{category.nome}}">{{category.nome}}</option>
+          </select>
+        </div>
+        <div class="row">
+          <button type="button" class="btn btn-success" (click)="new_category()">new <i class="fas fa-plus"></i></button>
+          <button type="button" class="btn btn-danger" (click)="remove_category()">remove <i class="fas fa-trash"></i></button>
+        </div>
+      </div>
+      <div style="display: none" class="new_delete" id="n_d">
+        <form  [formGroup]="categoryForm" (ngSubmit)="confirm_n_d_category()"  method="post" action=".">
+          <div *ngIf="new">
+            <label for="new_category">New Category</label>
+            <input placeholder="name" type="text" name="category" formControlName="nome" class="form-control" required="" id="new_category">
+            <div class="buttons">
+              <input type="submit" value="Confirm" class="confirm">
+              <button type="button" value="Cancel" (click)="cancel_c()" class="cancel">Cancel</button>
+            </div>
+          </div>
+          <div *ngIf="del">
+            <label for="del_category">Delete Category</label>
+            <select name="category" formControlName="nome" class="select form-control" id="del_category">
+              <option disabled selected>--Selecione--</option>
+              <option *ngFor="let category of categories" value="{{category.nome}}">{{category.nome}}</option>
+            </select>
+            <div class="buttons">
+              <input type="submit" value="Confirm" class="confirm">
+              <button type="button" value="Cancel" (click)="cancel_c()" class="cancel">Cancel</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="div_id_carbohydrates" class="form-group">
+      <label for="id_carbohydrates" class=" requiredField">
+      Carbohydrates<span class="asteriskField">*</span>
+      </label>
+      <div class="">
+        <input placeholder="per 100g" type="number" formControlName="hidratos_carbono" name="carbohydrates" step="0.1" class="numberinput form-control" required="" id="id_carbohydrates">
+      </div>
+    </div>
+    <div id="div_id_protein" class="form-group">
+      <label for="id_protein" class=" requiredField">
+      Protein<span class="asteriskField">*</span>
+      </label>
+      <div class="">
+        <input placeholder="per 100g" type="number" formControlName="proteina" name="protein" step="0.1" class="numberinput form-control" required="" id="id_protein">
+      </div>
+    </div>
+    <div id="div_id_fat" class="form-group">
+      <label for="id_fat" class=" requiredField">
+      Fat<span class="asteriskField">*</span>
+      </label>
+      <div class="">
+        <input placeholder="per 100g" type="number" formControlName="gordura" name="fat" step="0.1" class="numberinput form-control" required="" id="id_fat">
+      </div>
+    </div>
+
+    <div *ngIf="update" class="button_div">
+      <input type="submit" value="Update Food" class="btn" name="updateAlimento">
+    </div>
+    <div *ngIf="add" class="button_div">
+      <input type="submit" value="Add Food" class="btn" name="addAlimento">
+    </div>
+  </form>
+  <div style="display: inline-block;width: 100%">
+    <h5 style="float: left; margin-left: 20px; color: #555; font-size: 25px; text-transform: uppercase;font-family: 'poppins', sans-serif">Food List</h5>
+  </div>
+  <form action="." method="post" class="mealform" [formGroup]="filterForm" (ngSubmit)="filterFood()">
+    <div id="div_id_categoria" class="form-group">
+      <label for="id_categoria" class="">
+        Category
+      </label>
+      <div class="">
+        <select formControlName="category" name="categoria" class="selectmultiple form-control" id="id_categoria" multiple="">
+          <option *ngFor="let category of categories" value="{{category.nome}}">{{category.nome}}</option>
+          <option value=""></option>
+        </select>
+      </div>
+    </div>
+
+    <div id="div_id_nome_alimento" class="form-group">
+      <label for="id_nome_alimento" class="">
+        Name
+      </label>
+      <div class="">
+        <input formControlName="name" type="text" name="nome_alimento" placeholder="Search" class="textinput textInput form-control" id="id_nome_alimento">
+      </div>
+    </div>
+
+    <div id="div_id_protein_higher" class="form-group">
+      <label for="id_protein_higher" class="">
+        Protein
+      </label>
+      <div class="">
+        <input formControlName="protein_higher" type="number" name="protein_higher" placeholder="Higher" class="textinput textInput form-control" id="id_protein_higher">
+      </div>
+    </div>
+
+    <div id="div_id_protein_lower" class="form-group">
+      <div class="">
+        <input formControlName="protein_lower" type="number" name="protein_lower" placeholder="Lower" class="textinput textInput form-control" id="id_protein_lower">
+      </div>
+    </div>
+
+    <div id="div_id_hc_higher" class="form-group">
+      <label for="id_hc_higher" class="">
+        Carbohydrates
+      </label>
+      <div class="">
+        <input formControlName="hc_higher" type="number" name="hc_higher" placeholder="Higher" class="textinput textInput form-control" id="id_hc_higher">
+      </div>
+    </div>
+
+    <div id="div_id_hc_lower" class="form-group">
+      <div class="">
+        <input formControlName="hc_lower" type="number" name="hc_lower" placeholder="Lower" class="textinput textInput form-control" id="id_hc_lower">
+      </div>
+    </div>
+
+    <div id="div_id_fat_higher" class="form-group">
+      <label for="id_fat_higher" class="">
+        Fat
+      </label>
+      <div class="">
+        <input formControlName="fat_higher" type="number" name="fat_higher" placeholder="Higher" class="textinput textInput form-control" id="id_fat_higher">
+      </div>
+    </div>
+
+    <div id="div_id_fat_lower" class="form-group">
+      <div class="">
+        <input formControlName="fat_lower" type="number" name="fat_lower" placeholder="Lower" class="textinput textInput form-control" id="id_fat_lower">
+      </div>
+    </div>
+
+    <div class="button_div">
+      <input type="submit" value="Filter" class="btn" name="filterAlimentos">
+    </div>
+  </form>
+</div>
+
+<div class="table-box">
+  <table class="table table-bordered table-condensed table-hover">
+    <thead class="head">
+    <tr>
+      <th>Name</th>
+      <th>Calories per 100g</th>
+      <th>Protein</th>
+      <th>Carbohydrates</th>
+      <th>Fat</th>
+      <th style="width: 110px"></th>
+    </tr>
+    </thead>
+    <tbody class="text-left">
+    <tr *ngFor="let alimento of alimentos">
+      <td>{{ alimento.nome }}</td>
+      <td>{{ alimento.calorias }}</td>
+      <td>{{ alimento.proteina }}</td>
+      <td>{{ alimento.hidratos_carbono }}</td>
+      <td>{{ alimento.gordura }}</td>
+      <td>
+        <button type="button" class="add btn btn-outline-light" (click)="redirect_updateFood(alimento.id_alimento)"><i class="fas fa-edit" style="color: #F3B826"></i></button>
+        <button type="button" class="add btn btn-outline-light" (click)="removeFood(alimento.id_alimento)"><i class="fas fa-trash-alt" style="color: red"></i></button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

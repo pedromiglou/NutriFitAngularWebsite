@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Observable} from 'rxjs/Internal/Observable';
 import {baseURL} from '../environments/environment';
 import {DailyStats} from '../DailyStats';
 import {CookieService} from 'ngx-cookie-service';

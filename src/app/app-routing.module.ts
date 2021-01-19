@@ -12,15 +12,16 @@ import {CIresultsComponent} from "./ciresults/ciresults.component";
 import {MealComponent} from "./meal/meal.component";
 import {ValidateFoodComponent} from "./validate-food/validate-food.component";
 import {ProfileComponent} from "./profile/profile.component";
+import {FoodmanagementComponent} from "./foodmanagement/foodmanagement.component";
+import {UsermanagementComponent} from "./usermanagement/usermanagement.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
   {path: 'calculateBMI_CI', component: CalculatorsComponent},
-  {path: 'dailyCalories', component: HomeComponent},
-  {path: 'foodManagement', component: HomeComponent},
-  {path: 'userManagement', component: HomeComponent},
-  {path: 'logout', component: HomeComponent},
+  {path: 'foodManagement', component: FoodmanagementComponent},
+  {path: 'foodManagement/:id', component: FoodmanagementComponent},
+  {path: 'userManagement', component: UsermanagementComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signIn', component: SignInComponent},
   {path: 'daily', component: DailyComponent},
