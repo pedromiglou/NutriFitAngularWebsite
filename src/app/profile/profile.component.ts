@@ -129,6 +129,8 @@ export class ProfileComponent implements OnInit {
         },
         error => this.router.navigateByUrl('login')
       );
+    } else {
+      alert('Please fill all required fields');
     }
   }
 
@@ -140,6 +142,8 @@ export class ProfileComponent implements OnInit {
         },
         error => this.router.navigateByUrl('login')
       );
+    } else {
+      alert('Please fill all required fields');
     }
   }
 
@@ -150,11 +154,17 @@ export class ProfileComponent implements OnInit {
           this.profileService.changePassword(this.formPWD.value).subscribe(result => {
             // this.router.navigateByUrl('login');
             document.getElementById('alerta_u_p').style.display = 'block';
-          }, () => alert('The current password is incorrect!'));
+          }, err => {
+            if (err.status === 400){
+              alert('Current password incorrect');
+            }
+          });
         } else{
           alert('Passwords are different');
         }
       }
+    } else {
+      alert('Please fill all required fields');
     }
   }
 

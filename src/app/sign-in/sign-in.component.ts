@@ -42,6 +42,8 @@ export class SignInComponent implements OnInit {
           alert('Passwords are different');
         }
       }
+    } else{
+      alert('Please fill all fields');
     }
   }
 

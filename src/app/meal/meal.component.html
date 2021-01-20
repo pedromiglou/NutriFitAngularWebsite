@@ -99,11 +99,16 @@
       <td>{{ alimento.gordura }}</td>
       <td>
         <button type="button" class="add" (click)="validateFood(alimento.id_alimento)"><i class="fas fa-plus"></i></button>
-        <!--<button type="button" class="add" data-toggle="modal" data-target="#AddFoodModal" name="addFood"><i class="fas fa-plus"></i></button>-->
       </td>
     </tr>
     </tbody>
   </table>
+  <div class="row">
+    <div class="middle">
+      <button *ngIf="currentPage<numPages" type="button" title="next page" class="button_paginator" (click)="pageUp()" style="float: right"><i class="fas fa-arrow-circle-right"></i></button>
+      <button *ngIf="currentPage>1" title="previous page" type="button" class="button_paginator" (click)="pageDown()" style="float: right"><i class="fas fa-arrow-circle-left"></i></button>
+    </div>
+  </div>
 </div>
 
 <button class="btn btn-success" (click)="Back()" style="width: 200px;margin-top: 5px;margin-left: 10px; border-radius: 25px;background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);

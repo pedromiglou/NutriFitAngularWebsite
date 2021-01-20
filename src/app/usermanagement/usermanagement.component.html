@@ -76,4 +76,10 @@
     </tr>
     </tbody>
   </table>
+  <div class="row">
+    <div class="middle">
+      <button *ngIf="currentPage<num_pages" type="button" title="next page" class="button_paginator" (click)="pageUp()" style="float: right"><i class="fas fa-arrow-circle-right"></i></button>
+      <button *ngIf="currentPage>1" title="previous page" type="button" class="button_paginator" (click)="pageDown()" style="float: right"><i class="fas fa-arrow-circle-left"></i></button>
+    </div>
+  </div>
 </div>

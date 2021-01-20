@@ -14,6 +14,11 @@ export class UsermanagementComponent implements OnInit {
   userForm: FormGroup;
   users: any[];
   public nome_user: string;
+  private staff = '';
+  private superUser = '';
+  private name = '';
+  public num_pages: number;
+  public currentPage = 1;
   constructor(private authService: AuthServiceService, private router: Router, private route: ActivatedRoute,
               private cookieService: CookieService, private userService: UserService) { }
 
@@ -32,8 +37,11 @@ export class UsermanagementComponent implements OnInit {
 
   getUsers(): void{
     if (this.userForm.valid){
-      this.userService.getUsers(this.userForm.value.name, this.userForm.value.staff, this.userForm.value.superuser).subscribe(
-        data => this.users = data,
+      this.name = this.userForm.value.name;
+      this.staff = this.userForm.value.staff;
+      this.superUser = this.userForm.value.superuser;
+      this.userService.getUsers(this.userForm.value.name, this.userForm.value.staff, this.userForm.value.superuser, this.currentPage, null).subscribe(
+        data => {this.users = data.users; this.num_pages = data.pages; },
         error => this.router.navigateByUrl('login')
       );
     } else{
@@ -69,5 +77,15 @@ export class UsermanagementComponent implements OnInit {
     } else if (name === 'alerta_demote') {
       document.getElementById('alerta_demote').style.display = 'none';
     }
+  }
+
+  pageUp(): void{
+    this.currentPage += 1;
+    this.getUsers();
+  }
+
+  pageDown(): void{
+    this.currentPage -= 1;
+    this.getUsers();
   }
 }

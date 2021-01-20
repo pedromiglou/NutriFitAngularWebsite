@@ -32,9 +32,14 @@ export class LoginComponent implements OnInit {
           this.router.navigateByUrl('daily');
         },
         err => {
+          if (err.status === 400){
+            alert('Password or username incorrect');
+          }
           this.authService.errors = err.error;
         }
       );
+    } else{
+      alert('Fill all fields');
     }
   }
 }

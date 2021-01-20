@@ -80,7 +80,7 @@ export class DailyComponent implements OnInit {
 
   ngOnInit(): void {
     this.stats = new DailyStats();
-    this.d = new Date();
+    this.d = this.service.date;
     this.today = formatDate(this.d, 'yyyy-MM-dd', 'en');
     const yd = new Date();
     yd.setDate(this.d.getDate() - 1);
@@ -95,6 +95,7 @@ export class DailyComponent implements OnInit {
 
   goToYesterday(): void {
     this.d.setDate(this.d.getDate() - 1);
+    this.service.date = this.d;
     this.today = formatDate(this.d, 'yyyy-MM-dd', 'en');
     const yd = new Date();
     yd.setDate(this.d.getDate() - 1);
@@ -108,6 +109,7 @@ export class DailyComponent implements OnInit {
 
   goToTomorrow(): void {
     this.d.setDate(this.d.getDate() + 1);
+    this.service.date = this.d;
     this.today = formatDate(this.d, 'yyyy-MM-dd', 'en');
     const yd = new Date();
     yd.setDate(this.d.getDate() - 1);

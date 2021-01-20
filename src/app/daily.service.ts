@@ -11,6 +11,7 @@ import {Composed} from '../Composed';
   providedIn: 'root'
 })
 export class DailyService {
+  public date = new Date();
 
   constructor(private http: HttpClient, private authService: AuthServiceService, private cookieService: CookieService) {}
 

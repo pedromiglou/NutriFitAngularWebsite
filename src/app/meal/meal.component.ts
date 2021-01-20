@@ -19,12 +19,23 @@ export class MealComponent implements OnInit {
   public meal_name: string;
   public meal_data: string;
   public meal_id: string;
+  public numPages: number;
+  public currentPage = 1;
+  private name = '';
+  private category = '';
+  private protein_lower: number = null;
+  private protein_higher: number = null;
+  private hc_lower: number = null;
+  private hc_higher: number = null;
+  private fat_lower: number = null;
+  private fat_higher: number = null;
   constructor(private foodService: FoodService, private authService: AuthServiceService, private router: Router,
               private cookieService: CookieService) {}
 
   ngOnInit(): void {
-    this.foodService.getAlimentos('', '', '', '', '',
-      '', '', '').subscribe(data => this.alimentos = data,
+    this.foodService.getAlimentos(this.name, this.category, this.protein_lower, this.protein_higher, this.hc_lower,
+      this.hc_higher, this.fat_lower, this.fat_higher, this.currentPage, null).subscribe(
+      data => {this.alimentos = data.food; this.numPages = data.pages; },
       error => this.router.navigateByUrl('login')
     );
 
@@ -39,12 +50,12 @@ export class MealComponent implements OnInit {
     this.formMeal = new FormGroup({
       name: new FormControl(''),
       category: new FormControl(''),
-      protein_lower: new FormControl(''),
-      protein_higher: new FormControl(''),
-      hc_lower: new FormControl(''),
-      hc_higher: new FormControl(''),
-      fat_lower: new FormControl(''),
-      fat_higher: new FormControl(''),
+      protein_lower: new FormControl(null),
+      protein_higher: new FormControl(null),
+      hc_lower: new FormControl(null),
+      hc_higher: new FormControl(null),
+      fat_lower: new FormControl(null),
+      fat_higher: new FormControl(null),
     });
   }
 
@@ -57,16 +68,17 @@ export class MealComponent implements OnInit {
 
   getFood(): void {
     if (this.formMeal.valid){
-      let name = this.formMeal.value.name;
-      let category = this.formMeal.value.category;
-      let protein_lower = this.formMeal.value.protein_lower;
-      let protein_higher = this.formMeal.value.protein_higher;
-      let hc_lower = this.formMeal.value.hc_lower;
-      let hc_higher = this.formMeal.value.hc_higher;
-      let fat_lower = this.formMeal.value.fat_lower;
-      let fat_higher = this.formMeal.value.fat_higher;
-      this.foodService.getAlimentos(name, category, protein_lower, protein_higher, hc_lower, hc_higher,
-        fat_lower, fat_higher).subscribe(data => this.alimentos = data,
+      this.name = this.formMeal.value.name;
+      this.category = this.formMeal.value.category;
+      this.protein_lower = this.formMeal.value.protein_lower;
+      this.protein_higher = this.formMeal.value.protein_higher;
+      this.hc_lower = this.formMeal.value.hc_lower;
+      this.hc_higher = this.formMeal.value.hc_higher;
+      this.fat_lower = this.formMeal.value.fat_lower;
+      this.fat_higher = this.formMeal.value.fat_higher;
+      this.foodService.getAlimentos(name, this.category, this.protein_lower, this.protein_higher, this.hc_lower,
+        this.hc_higher, this.fat_lower, this.fat_higher, 1, null).subscribe(
+          data => {this.alimentos = data.food; this.numPages = data.pages; },
         error => this.router.navigateByUrl('login')
         );
     }else{
@@ -82,5 +94,23 @@ export class MealComponent implements OnInit {
 
   Back(): void{
     this.router.navigateByUrl('daily');
+  }
+
+  pageUp(): void{
+    this.currentPage += 1;
+    this.foodService.getAlimentos(this.name, this.category, this.protein_lower, this.protein_higher, this.hc_lower,
+      this.hc_higher, this.fat_lower, this.fat_higher, this.currentPage, null).subscribe(
+      data => {this.alimentos = data.food; this.numPages = data.pages; },
+      error => this.router.navigateByUrl('login')
+    );
+  }
+
+  pageDown(): void{
+    this.currentPage -= 1;
+    this.foodService.getAlimentos(this.name, this.category, this.protein_lower, this.protein_higher, this.hc_lower,
+      this.hc_higher, this.fat_lower, this.fat_higher, this.currentPage, null).subscribe(
+      data => {this.alimentos = data.food; this.numPages = data.pages; },
+      error => this.router.navigateByUrl('login')
+    );
   }
 }

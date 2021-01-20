@@ -117,7 +117,6 @@ export class CalculatorsComponent implements OnInit {
       }
       this.router.navigateByUrl('CIresults');
     } else{
-      console.log(this.formCalculatorCI.value.height.valid);
       alert('Form is invalid!');
     }
   }
@@ -127,6 +126,8 @@ export class CalculatorsComponent implements OnInit {
       this.calculatorService.updateBMI(this.formCalculatorBMI.value).subscribe(x => {},
         error => this.router.navigateByUrl('login')
       );
+    } else{
+      alert('Please fill all required fields');
     }
   }
 
@@ -135,6 +136,8 @@ export class CalculatorsComponent implements OnInit {
       this.calculatorService.updateCI(this.formCalculatorCI.value).subscribe(x => {},
         error => this.router.navigateByUrl('login')
       );
+    } else{
+      alert('Please fill all required fields');
     }
   }
 }

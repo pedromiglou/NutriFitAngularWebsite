@@ -12,7 +12,7 @@ export class UserService {
 
   constructor(private http: HttpClient, private authService: AuthServiceService, private cookieService: CookieService) { }
 
-  getUsers(name?: string, staff?: string, superUser?: string): Observable<any>{
+  getUsers(name?: string, staff?: string, superUser?: string, page?: number, size?: number): Observable<any>{
     let query = '';
 
     if (name !== '' && name !== null){
@@ -34,6 +34,20 @@ export class UserService {
         query = query + '?superUser=' + superUser;
       }else{
         query = query + '&superUser=' + superUser;
+      }
+    }
+    if (page !== null){
+      if (query === ''){
+        query = query + '?page=' + page;
+      }else{
+        query = query + '&page=' + page;
+      }
+    }
+    if (size !== null){
+      if (query === ''){
+        query = query + '?size=' + size;
+      }else{
+        query = query + '&size=' + size;
       }
     }
     const httpOptions = {

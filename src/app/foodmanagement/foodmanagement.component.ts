@@ -30,6 +30,16 @@ export class FoodmanagementComponent implements OnInit {
   public alert: string;
   public nome_categoria: any;
   public nome_alimento: string;
+  public numPages: number;
+  public currentPage = 1;
+  private name = '';
+  private categoryName = '';
+  private protein_lower: number = null;
+  private protein_higher: number = null;
+  private hc_lower: number = null;
+  private hc_higher: number = null;
+  private fat_lower: number = null;
+  private fat_higher: number = null;
   constructor(private authService: AuthServiceService, private router: Router, private route: ActivatedRoute,
               private cookieService: CookieService, private foodService: FoodService) { }
 
@@ -56,12 +66,12 @@ export class FoodmanagementComponent implements OnInit {
     this.filterForm = new FormGroup({
       name: new FormControl(''),
       category: new FormControl(''),
-      protein_lower: new FormControl(''),
-      protein_higher: new FormControl(''),
-      hc_lower: new FormControl(''),
-      hc_higher: new FormControl(''),
-      fat_lower: new FormControl(''),
-      fat_higher: new FormControl(''),
+      protein_lower: new FormControl(null),
+      protein_higher: new FormControl(null),
+      hc_lower: new FormControl(null),
+      hc_higher: new FormControl(null),
+      fat_lower: new FormControl(null),
+      fat_higher: new FormControl(null),
     });
   }
 
@@ -79,8 +89,9 @@ export class FoodmanagementComponent implements OnInit {
       this.update = false;
       this.add = true;
     }
-    this.foodService.getAlimentos('', '', '', '', '',
-      '', '', '').subscribe(data => this.alimentos = data,
+    this.foodService.getAlimentos(this.name, this.categoryName, this.protein_lower, this.protein_higher, this.hc_lower,
+      this.hc_higher, this.fat_lower, this.fat_higher, this.currentPage, null).subscribe(
+      data => {this.alimentos = data.food; this.numPages = data.pages; },
       error => this.router.navigateByUrl('login')
     );
     this.foodService.getCategorias().subscribe(
@@ -133,16 +144,17 @@ export class FoodmanagementComponent implements OnInit {
 
   filterFood(): void {
     if (this.filterForm.valid){
-      const name = this.filterForm.value.name;
-      const category = this.filterForm.value.category;
-      const protein_lower = this.filterForm.value.protein_lower;
-      const protein_higher = this.filterForm.value.protein_higher;
-      const hc_lower = this.filterForm.value.hc_lower;
-      const hc_higher = this.filterForm.value.hc_higher;
-      const fat_lower = this.filterForm.value.fat_lower;
-      const fat_higher = this.filterForm.value.fat_higher;
-      this.foodService.getAlimentos(name, category, protein_lower, protein_higher, hc_lower, hc_higher,
-        fat_lower, fat_higher).subscribe(data => this.alimentos = data,
+      this.name = this.filterForm.value.name;
+      this.categoryName = this.filterForm.value.category;
+      this.protein_lower = this.filterForm.value.protein_lower;
+      this.protein_higher = this.filterForm.value.protein_higher;
+      this.hc_lower = this.filterForm.value.hc_lower;
+      this.hc_higher = this.filterForm.value.hc_higher;
+      this.fat_lower = this.filterForm.value.fat_lower;
+      this.fat_higher = this.filterForm.value.fat_higher;
+      this.foodService.getAlimentos(this.name, this.categoryName, this.protein_lower, this.protein_higher, this.hc_lower, this.hc_higher,
+        this.fat_lower, this.fat_higher, 1, null).subscribe(
+          data => {this.alimentos = data.food; this.numPages = data.pages},
         error => this.router.navigateByUrl('login')
       );
     }else{
@@ -247,6 +259,24 @@ export class FoodmanagementComponent implements OnInit {
     } else if (name === 'alerta_al_a'){
       document.getElementById('alerta_al_a').style.display = 'none';
     }
+  }
+
+  pageUp(): void{
+    this.currentPage += 1;
+    this.foodService.getAlimentos(this.name, this.categoryName, this.protein_lower, this.protein_higher, this.hc_lower,
+      this.hc_higher, this.fat_lower, this.fat_higher, this.currentPage, null).subscribe(
+      data => {this.alimentos = data.food; this.numPages = data.pages; },
+      error => this.router.navigateByUrl('login')
+    );
+  }
+
+  pageDown(): void{
+    this.currentPage -= 1;
+    this.foodService.getAlimentos(this.name, this.categoryName, this.protein_lower, this.protein_higher, this.hc_lower,
+      this.hc_higher, this.fat_lower, this.fat_higher, this.currentPage, null).subscribe(
+      data => {this.alimentos = data.food; this.numPages = data.pages; },
+      error => this.router.navigateByUrl('login')
+    );
   }
 
 }

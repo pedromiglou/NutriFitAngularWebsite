@@ -216,7 +216,6 @@ form div .btn{
   margin-left: 0.5%;
   margin-bottom: 10px;
   height: 400px;
-  overflow-y: scroll;
   border-radius: 10px;
 }
 
@@ -273,6 +272,41 @@ button.back{
   cursor: pointer;
   transition: .5s;
 }
+
+.middle{
+  margin-left: 40%;
+  margin-right: 40%;
+  width: 20%;
+}
+
+.button_paginator{
+  width: 50%;
+  border: none;
+  background-color: transparent;
+}
+
+.button_paginator:focus {
+  outline: 0 !important;
+}
+
+.button_paginator:hover {
+  cursor: pointer;
+}
+
+svg.svg-inline--fa.fa-arrow-circle-right.fa-w-16{
+  width: 25%;
+  float: right;
+  height: auto;
+  color: #10ac84;
+}
+
+svg.svg-inline--fa.fa-arrow-circle-left.fa-w-16{
+  width: 25%;
+  float: left;
+  height: auto;
+  color: #10ac84;
+}
+
 
 @media screen and (max-width: 1050px){
 

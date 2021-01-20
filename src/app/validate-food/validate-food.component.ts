@@ -55,7 +55,7 @@ export class ValidateFoodComponent implements OnInit {
           error => this.router.navigateByUrl('login'));
       }
     }else{
-      alert('Form is invalid!');
+      alert('Please fill all required fields');
     }
   }
 

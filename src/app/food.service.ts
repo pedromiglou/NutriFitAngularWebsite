@@ -26,8 +26,9 @@ export class FoodService {
     return this.http.get<Category[]>( baseURL + '/getcategories', httpOptions);
   }
 
-  getAlimentos(name?: string, category?: string, protein_lower?: string, protein_higher?: string,
-               hc_lower?: string, hc_higher?: string, fat_lower?: string, fat_higher?: string): Observable<Food[]>{
+  getAlimentos(name?: string, category?: string, protein_lower?: number, protein_higher?: number,
+               hc_lower?: number, hc_higher?: number, fat_lower?: number, fat_higher?: number,
+               page?: number, size?: number): Observable<any>{
     let query = '';
 
     if (name !== '' && name !== null){
@@ -44,46 +45,60 @@ export class FoodService {
         query = query + '&category=' + category;
       }
     }
-    if (protein_lower !== '' && protein_lower !== null){
+    if (protein_lower !== null){
       if (query === ''){
         query = query + '?protein_lower=' + protein_lower.toString();
       }else{
         query = query + '&protein_lower=' + protein_lower.toString();
       }
     }
-    if (protein_higher !== '' && protein_higher !== null){
+    if (protein_higher !== null){
       if (query === ''){
         query = query + '?protein_higher=' + protein_higher.toString();
       }else{
         query = query + '&protein_higher=' + protein_higher.toString();
       }
     }
-    if (hc_lower !== '' && hc_lower !== null){
+    if (hc_lower !== null){
       if (query === ''){
         query = query + '?hc_lower=' + hc_lower.toString();
       }else{
         query = query + '&hc_lower=' + hc_lower.toString();
       }
     }
-    if (hc_higher !== '' && hc_higher !== null){
+    if (hc_higher !== null){
       if (query === ''){
         query = query + '?hc_higher=' + hc_higher.toString();
       }else{
         query = query + '&hc_higher=' + hc_higher.toString();
       }
     }
-    if (fat_lower !== '' && fat_lower !== null){
+    if (fat_lower !== null){
       if (query === ''){
         query = query + '?fat_lower=' + fat_lower.toString();
       }else{
         query = query + '&fat_lower=' + fat_lower.toString();
       }
     }
-    if (fat_higher !== '' && fat_higher !== null){
+    if (fat_higher !== null){
       if (query === ''){
         query = query + '?fat_higher=' + fat_higher.toString();
       }else{
         query = query + '&fat_higher=' + fat_higher.toString();
+      }
+    }
+    if (page !== null){
+      if (query === ''){
+        query = query + '?page=' + page.toString();
+      }else{
+        query = query + '&page=' + page.toString();
+      }
+    }
+    if (size !== null){
+      if (query === ''){
+        query = query + '?size=' + size.toString();
+      }else{
+        query = query + '&size=' + size.toString();
       }
     }
     const httpOptions = {
