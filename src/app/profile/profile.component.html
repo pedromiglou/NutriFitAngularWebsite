@@ -11,6 +11,10 @@
     <div class="profile tabShow" id="pro">
       <p style="color: white">.</p>
       <h1 class="ProfileTitle">Personal Info</h1>
+      <div class="alert alert-success" id="alerta_u_u" style="display: none">
+        <button type="button" class="close" (click)="removeAlert('alerta_u_u')">&times;</button>
+        User updated
+      </div>
       <p style="color: white">.</p>
       <form action="." method="post" [formGroup]="formPI" (ngSubmit)="setUser()">
         <div id="div_id_first_name" class="form-group">
@@ -76,6 +80,10 @@
     <div class="profile tabShow" style="display: none" id="pwd">
       <p style="color: white">.</p>
       <h1 class="ProfileTitle">Change Password</h1>
+      <div class="alert alert-success" id="alerta_u_p" style="display: none">
+        <button type="button" class="close" (click)="removeAlert('alerta_u_p')">&times;</button>
+        Password changed
+      </div>
       <p style="color: white">.</p>
       <form action="." method="post" [formGroup]="formPWD" (ngSubmit)="changePassword()">
         <div id="div_id_old_password" class="form-group">
@@ -127,6 +135,10 @@
     <div class="profile tabShow" style="display: none" id="obj">
       <p style="color: white">.</p>
       <h1 class="ProfileTitle">Goals</h1>
+      <div class="alert alert-success" id="alerta_u_g" style="display: none">
+        <button type="button" class="close" (click)="removeAlert('alerta_u_g')">&times;</button>
+        Goals updated
+      </div>
       <p style="color: white">.</p>
       <form action="." method="post" [formGroup]="formG" (ngSubmit)="setGoals()">
         <div id="div_id_objetivo" class="form-group">

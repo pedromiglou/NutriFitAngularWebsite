@@ -79,4 +79,8 @@ export class MealComponent implements OnInit {
     this.cookieService.set('validateFoodMode', 'create');
     this.router.navigateByUrl('validateFood');
   }
+
+  Back(): void{
+    this.router.navigateByUrl('daily');
+  }
 }

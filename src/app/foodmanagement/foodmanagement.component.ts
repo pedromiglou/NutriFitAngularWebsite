@@ -27,6 +27,9 @@ export class FoodmanagementComponent implements OnInit {
   public new: boolean;
   public del: boolean;
   private category: HTMLElement;
+  public alert: string;
+  public nome_categoria: any;
+  public nome_alimento: string;
   constructor(private authService: AuthServiceService, private router: Router, private route: ActivatedRoute,
               private cookieService: CookieService, private foodService: FoodService) { }
 
@@ -89,14 +92,23 @@ export class FoodmanagementComponent implements OnInit {
   submitFood(): void{
     if (this.a_e_Food.valid){
       if (this.add){
-        this.foodService.addFood(this.a_e_Food.value).subscribe( () => this.reloadFood(),
+        this.foodService.addFood(this.a_e_Food.value).subscribe( () => {
+          this.reloadFood();
+          this.nome_alimento = this.a_e_Food.value.nome;
+          document.getElementById('alerta_al_a').style.display = 'block';
+        },
           error => this.router.navigateByUrl('login')
         );
       } else if (this.update){
         const food = this.a_e_Food.value;
         food.id = this.food_id;
 
-        this.foodService.updateFood(food).subscribe( () => {this.reloadFood(); this.router.navigateByUrl('foodManagement'); },
+        this.foodService.updateFood(food).subscribe( () => {
+          this.reloadFood();
+          this.router.navigateByUrl('foodManagement');
+          this.nome_alimento = this.a_e_Food.value.nome;
+          document.getElementById('alerta_al_u').style.display = 'block';
+          },
           error => this.router.navigateByUrl('login')
         );
       }
@@ -109,8 +121,12 @@ export class FoodmanagementComponent implements OnInit {
     this.router.navigateByUrl('foodManagement/' + food_id);
   }
 
-  removeFood(food_id: number): void{
-    this.foodService.removeFood(food_id).subscribe( x => this.reloadFood(),
+  removeFood(food_id: number, food_name: string): void{
+    this.foodService.removeFood(food_id).subscribe( x => {
+      this.reloadFood();
+      this.nome_alimento = food_name;
+      document.getElementById('alerta_al_r').style.display = 'block';
+      },
       error => this.router.navigateByUrl('login')
     );
   }
@@ -194,6 +210,8 @@ export class FoodmanagementComponent implements OnInit {
                   data => this.categories = data,
                   error =>  this.router.navigateByUrl('login')
                 );
+                this.nome_categoria = this.categoryForm.value.nome;
+                document.getElementById('alerta_r').style.display = 'block';
                 }
                 , error => this.router.navigateByUrl('login'));
           }
@@ -206,12 +224,28 @@ export class FoodmanagementComponent implements OnInit {
               data => this.categories = data,
               error =>  this.router.navigateByUrl('login')
             );
+            this.nome_categoria = this.categoryForm.value.nome;
+            document.getElementById('alerta_a').style.display = 'block';
             }
           , error => this.router.navigateByUrl('login'));
       }
     }
     else{
       alert('Form is invalid!');
+    }
+  }
+
+  removeAlert(name: string): void{
+    if (name === 'alerta_r'){
+      document.getElementById('alerta_r').style.display = 'none';
+    } else if (name === 'alerta_a'){
+      document.getElementById('alerta_a').style.display = 'none';
+    } else if (name === 'alerta_al_r'){
+      document.getElementById('alerta_al_r').style.display = 'none';
+    } else if (name === 'alerta_al_u'){
+      document.getElementById('alerta_al_u').style.display = 'none';
+    } else if (name === 'alerta_al_a'){
+      document.getElementById('alerta_al_a').style.display = 'none';
     }
   }
 

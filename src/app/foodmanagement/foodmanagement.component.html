@@ -7,6 +7,18 @@
   <div style="display: inline-block;width: 100%">
     <h5 *ngIf="update" style="float: left; margin-left: 20px; color: #555; font-size: 25px; text-transform: uppercase;font-family: 'poppins', sans-serif">Update Food</h5>
     <h5 *ngIf="add" style="float: left; margin-left: 20px; color: #555; font-size: 25px; text-transform: uppercase;font-family: 'poppins', sans-serif">Add Food</h5>
+    <div class="alert alert-success" id="alerta_al_a" style="display: none">
+      <button type="button" class="close" (click)="removeAlert('alerta_al_a')">&times;</button>
+      Food {{nome_alimento}} added
+    </div>
+    <div class="alert alert-warning" id="alerta_al_u" style="display: none">
+      <button type="button" class="close" (click)="removeAlert('alerta_al_u')">&times;</button>
+      Food {{nome_alimento}} updated
+    </div>
+    <div class="alert alert-danger" id="alerta_al_r" style="display: none">
+      <button type="button" class="close" (click)="removeAlert('alerta_al_r')">&times;</button>
+      Food {{nome_alimento}} removed
+    </div>
   </div>
   <form action="." method="post" class="mealform" [formGroup]="a_e_Food" (ngSubmit)="submitFood()">
     <div id="div_id_name" class="form-group">
@@ -26,6 +38,14 @@
       </div>
     </div>
     <div id="div_id_category" class="form-group">
+      <div class="alert alert-success" id="alerta_r" style="display: none">
+        <button type="button" class="close" (click)="removeAlert('alerta_r')">&times;</button>
+        Category {{nome_categoria}} removed
+      </div>
+      <div class="alert alert-success" id="alerta_a" style="display: none">
+        <button type="button" class="close" (click)="removeAlert('alerta_a')">&times;</button>
+        Category {{nome_categoria}} added
+      </div>
       <div class="content" id="category">
         <label for="id_category" id="label_c" class=" requiredField">
           Category<span class="asteriskField">*</span>
@@ -194,7 +214,7 @@
       <td>{{ alimento.gordura }}</td>
       <td>
         <button type="button" class="add btn btn-outline-light" (click)="redirect_updateFood(alimento.id_alimento)"><i class="fas fa-edit" style="color: #F3B826"></i></button>
-        <button type="button" class="add btn btn-outline-light" (click)="removeFood(alimento.id_alimento)"><i class="fas fa-trash-alt" style="color: red"></i></button>
+        <button type="button" class="add btn btn-outline-light" (click)="removeFood(alimento.id_alimento, alimento.nome)"><i class="fas fa-trash-alt" style="color: red"></i></button>
       </td>
     </tr>
     </tbody>

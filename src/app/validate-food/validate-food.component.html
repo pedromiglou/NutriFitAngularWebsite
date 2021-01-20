@@ -35,7 +35,7 @@
         <input type="submit" class="confirm" value="Save">
         -->
       </form>
-      <input type="submit" class="back" routerLink="daily" value="Cancel">
+      <input type="submit" class="back" (click)="Cancel()" routerLink="daily" value="Cancel">
       <input type="submit" class="confirm" value="Save" (click)="validateFood()">
     </div>
   </div>

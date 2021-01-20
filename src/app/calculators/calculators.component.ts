@@ -18,6 +18,7 @@ export class CalculatorsComponent implements OnInit {
   public imc: number;
   public bmr: number;
   public caloric_intake: number;
+  public alertSuccess: string;
   constructor(private calculatorService: CalculateService, public authService: AuthServiceService, private router: Router,
               private cookieService: CookieService, private profileService: ProfileService) { }
 

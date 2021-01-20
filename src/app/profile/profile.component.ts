@@ -125,6 +125,7 @@ export class ProfileComponent implements OnInit {
     if (this.formPI.valid){
       this.profileService.setUser(this.formPI.value).subscribe(x => {
         this.refreshUser();
+        document.getElementById('alerta_u_u').style.display = 'block';
         },
         error => this.router.navigateByUrl('login')
       );
@@ -135,6 +136,7 @@ export class ProfileComponent implements OnInit {
     if (this.formG.valid){
       this.profileService.setGoals(this.formG.value).subscribe(x => {
         this.refreshProfile();
+        document.getElementById('alerta_u_g').style.display = 'block';
         },
         error => this.router.navigateByUrl('login')
       );
@@ -146,8 +148,9 @@ export class ProfileComponent implements OnInit {
       if (this.validatePassword(this.formPWD.value.new_pwd)) {
         if (this.formPWD.value.new_pwd === this.formPWD.value.new_pwd_c) {
           this.profileService.changePassword(this.formPWD.value).subscribe(result => {
-            this.router.navigateByUrl('login');
-          }, () => alert('invalid field or username already exists'));
+            // this.router.navigateByUrl('login');
+            document.getElementById('alerta_u_p').style.display = 'block';
+          }, () => alert('The current password is incorrect!'));
         } else{
           alert('Passwords are different');
         }
@@ -174,5 +177,15 @@ export class ProfileComponent implements OnInit {
       return false;
     }
     return true;
+  }
+
+  removeAlert(name: string): void{
+    if (name === 'alerta_u_u'){
+      document.getElementById('alerta_u_u').style.display = 'none';
+    } else if (name === 'alerta_u_g') {
+      document.getElementById('alerta_u_g').style.display = 'none';
+    } else if (name === 'alerta_u_p') {
+      document.getElementById('alerta_u_p').style.display = 'none';
+    }
   }
 }

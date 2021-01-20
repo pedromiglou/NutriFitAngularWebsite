@@ -58,4 +58,12 @@ export class ValidateFoodComponent implements OnInit {
       alert('Form is invalid!');
     }
   }
+
+  Cancel(): void{
+    if (this.mode === 'update'){
+      this.router.navigateByUrl('daily');
+    } else if (this.mode === 'create'){
+      this.router.navigateByUrl('meal');
+    }
+  }
 }

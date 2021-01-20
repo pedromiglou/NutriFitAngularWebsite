@@ -9,8 +9,7 @@ import {AuthServiceService} from './auth-service.service';
 export class AppComponent implements OnInit {
   title = 'NutriFit';
 
-  constructor(public authService: AuthServiceService) {
-  }
+  constructor(public authService: AuthServiceService) { }
 
   ngOnInit(): void {}
 

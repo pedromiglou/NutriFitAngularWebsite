@@ -3,6 +3,14 @@
 <div class="customfilters" style="background-color: white">
   <div style="display: inline-block;width: 100%">
     <h5 style="float: left; margin-left: 20px; margin-top: 10px; color: #555; font-size: 30px; text-transform: uppercase;font-family: 'poppins', sans-serif">User Management</h5>
+    <div class="alert alert-success" id="alerta_promote" style="display: none">
+      <button type="button" class="close" (click)="removeAlert('alerta_promote')">&times;</button>
+      User {{nome_user}} promoted
+    </div>
+    <div class="alert alert-danger" id="alerta_demote" style="display: none">
+      <button type="button" class="close" (click)="removeAlert('alerta_demote')">&times;</button>
+      User {{nome_user}} demoted
+    </div>
   </div>
   <form action="." method="post" class="userform" [formGroup]="userForm" (ngSubmit)="getUsers()">
     <div id="div_id_name" class="form-group">
@@ -62,8 +70,8 @@
       <td>{{ user.staff }}</td>
       <td>{{ user.superuser }}</td>
       <td>
-        <button type="button" class="add btn btn-outline-light" (click)="promoteUser(user.id)"><i class="fas fa-angle-double-up" style="font-size:20px;color: #006600"></i></button>
-        <button type="button" class="add btn btn-outline-light" (click)="demoteUser(user.id)"><i class="fas fa-angle-double-down" style="font-size:20px;color: red"></i></button>
+        <button type="button" class="add btn btn-outline-light" (click)="promoteUser(user.id, user.name)"><i class="fas fa-angle-double-up" style="font-size:20px;color: #006600"></i></button>
+        <button type="button" class="add btn btn-outline-light" (click)="demoteUser(user.id, user.name)"><i class="fas fa-angle-double-down" style="font-size:20px;color: red"></i></button>
       </td>
     </tr>
     </tbody>
