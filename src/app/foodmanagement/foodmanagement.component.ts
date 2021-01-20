@@ -152,8 +152,9 @@ export class FoodmanagementComponent implements OnInit {
       this.hc_higher = this.filterForm.value.hc_higher;
       this.fat_lower = this.filterForm.value.fat_lower;
       this.fat_higher = this.filterForm.value.fat_higher;
+      this.currentPage = 1;
       this.foodService.getAlimentos(this.name, this.categoryName, this.protein_lower, this.protein_higher, this.hc_lower, this.hc_higher,
-        this.fat_lower, this.fat_higher, 1, null).subscribe(
+        this.fat_lower, this.fat_higher, this.currentPage, null).subscribe(
           data => {this.alimentos = data.food; this.numPages = data.pages},
         error => this.router.navigateByUrl('login')
       );

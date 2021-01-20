@@ -40,7 +40,9 @@ export class UsermanagementComponent implements OnInit {
       this.name = this.userForm.value.name;
       this.staff = this.userForm.value.staff;
       this.superUser = this.userForm.value.superuser;
-      this.userService.getUsers(this.userForm.value.name, this.userForm.value.staff, this.userForm.value.superuser, this.currentPage, null).subscribe(
+      this.currentPage = 1;
+      this.userService.getUsers(this.userForm.value.name, this.userForm.value.staff, this.userForm.value.superuser,
+        this.currentPage, null).subscribe(
         data => {this.users = data.users; this.num_pages = data.pages; },
         error => this.router.navigateByUrl('login')
       );
@@ -81,11 +83,17 @@ export class UsermanagementComponent implements OnInit {
 
   pageUp(): void{
     this.currentPage += 1;
-    this.getUsers();
+    this.userService.getUsers(this.userForm.value.name, this.userForm.value.staff, this.userForm.value.superuser, this.currentPage, null).subscribe(
+      data => {this.users = data.users; this.num_pages = data.pages; },
+      error => this.router.navigateByUrl('login')
+    );
   }
 
   pageDown(): void{
     this.currentPage -= 1;
-    this.getUsers();
+    this.userService.getUsers(this.userForm.value.name, this.userForm.value.staff, this.userForm.value.superuser, this.currentPage, null).subscribe(
+      data => {this.users = data.users; this.num_pages = data.pages; },
+      error => this.router.navigateByUrl('login')
+    );
   }
 }

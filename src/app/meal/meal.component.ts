@@ -76,8 +76,9 @@ export class MealComponent implements OnInit {
       this.hc_higher = this.formMeal.value.hc_higher;
       this.fat_lower = this.formMeal.value.fat_lower;
       this.fat_higher = this.formMeal.value.fat_higher;
+      this.currentPage = 1;
       this.foodService.getAlimentos(name, this.category, this.protein_lower, this.protein_higher, this.hc_lower,
-        this.hc_higher, this.fat_lower, this.fat_higher, 1, null).subscribe(
+        this.hc_higher, this.fat_lower, this.fat_higher, this.currentPage, null).subscribe(
           data => {this.alimentos = data.food; this.numPages = data.pages; },
         error => this.router.navigateByUrl('login')
         );
