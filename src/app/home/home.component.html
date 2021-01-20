@@ -10,16 +10,7 @@
         <h1 class="display-2"></h1>
         <h3>NutriFit</h3>
         <!-- If user is authenticated-->
-        <button type="button" class="btn btn-success btn-lg" onclick="location.href= '/daily';">Get Started</button>
-        <!-- else-->
-        <script>
-          function alertBox() {
-            location.replace('/login')
-          alert("You have to login to access our daily calories count");
-          }
-        </script>
-        <button type="button" class="btn btn-success btn-lg" onclick=alertBox()>Get Started</button>
-        <!-- End if-->
+        <button type="button" class="btn btn-success btn-lg" routerLink="/daily">Get Started</button>
       </div>
     </div>
     <div class="carousel-item">
